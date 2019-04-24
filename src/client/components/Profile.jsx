@@ -4,6 +4,12 @@ import CreatePost from "./CreatePost";
 
 class Profile extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+    }
+
+
     render() {
         return (
             <div>
@@ -24,7 +30,8 @@ class Profile extends React.Component {
                     <CreatePost/>
                 </div>
 
-                <Timeline/>
+                <Timeline posts={[]}/>
+
             </div>
         )
 

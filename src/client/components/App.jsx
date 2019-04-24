@@ -7,8 +7,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: null,
-            welcomeMessage: "..."
+            posts: [],
+            welcomeMessage: ""
         }
 
         this.fetchAllPosts = this.fetchAllPosts.bind(this);
@@ -37,7 +37,7 @@ class App extends React.Component {
             //Network error: eg, wrong URL, no internet, etc.
             this.setState({
                 error: "ERROR when retrieving list of posts: " + err,
-                posts: null
+                posts: []
             });
             return;
         }
@@ -50,7 +50,7 @@ class App extends React.Component {
         } else {
             this.setState({
                 error: "Issue with HTTP connection: status code " + response.status,
-                posts: null
+                posts: []
             });
         }
     }
