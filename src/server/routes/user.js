@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-
-const UserRepo = require('./repository_user');
-const PostRepo = require('./repository_post');
+const passport = require('passport/lib');
+const UserRepo = require('../repository_user');
 
 
 /*
@@ -48,6 +46,7 @@ router.post('/api/logout', function(req, res){
     res.status(204).send();
 });
 
+
 /*
     Provide info on logged in user
  */
@@ -68,6 +67,8 @@ router.get("/api/user", (req, res) => {
 
     res.status(401).send();
 });
+
+
 
 
 module.exports = router;

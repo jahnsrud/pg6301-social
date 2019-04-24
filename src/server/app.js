@@ -9,12 +9,11 @@ const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 const userRepo = require('./repository_user');
 const postRepo = require('./repository_post');
-const routes = require('./routes');
+const routes = require('./routes/user');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(express.static('public'));
 
 app.use(session({
@@ -27,6 +26,23 @@ app.use(session({
 app.get('/api/welcome', (req, res) => {
     res.send({ express: 'Welcome 😎 This is your server speaking' });
 });
+
+
+
+app.get("/api/users/:id", (req, res) => {
+    const user = userRepo.getUser(req.params["id"]);
+
+    if (user === undefined || user === null) {
+        res.status(404);
+        res.send()
+    } else {
+
+        res.json(user);
+    }
+
+});
+
+
 
 /*
 Posts

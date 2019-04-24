@@ -12,13 +12,31 @@ class Profile extends React.Component {
             birthday: "BIRTHDAY_TEST",
             location: "LOCATION_TEST",
             friends: ["Someone", "Something", "Test"]
-        }
+        };
+        
+        this.fetchUser = this.fetchUser.bind(this);
 
     }
 
     componentDidMount() {
+        this.fetchUser("Markus");
 
+    }
 
+    async fetchUser(id) {
+
+        console.log("Fetching user with id: " + id);
+
+        const url = "/api/users/" + id;
+
+        const response = await fetch(url);
+        const body = await response.json();
+
+        if (response.status !== 200) {
+            throw Error(body.message);
+        }
+
+        console.log(body);
 
     }
 
