@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class Message extends React.Component {
 
@@ -10,7 +11,9 @@ class Message extends React.Component {
     render() {
         return (
             <div className="message">
-                <p className="message-author">{this.props.author}</p>
+                <Link to={"/profile"}>
+                    <p className="message-author">{this.props.author}</p>
+                </Link>
                 <p className="message-content">{this.props.message}</p>
 
             </div>

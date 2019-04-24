@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import Search from "./Search";
 
 class Header extends React.Component {
@@ -51,6 +51,8 @@ class Header extends React.Component {
 
         this.props.updateLoggedInUserId(null);
         this.props.history.push("/");
+        <Redirect to="/" push />
+
     };
 
     render() {

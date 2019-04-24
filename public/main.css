@@ -267,7 +267,8 @@ button:disabled {
 .post {
   padding: 16px;
   border: 1px solid #cccccc;
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  border-radius: 8px; }
 
 .post-author, .post-date {
   color: #3b3b3b;
