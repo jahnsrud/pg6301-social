@@ -1,5 +1,6 @@
 import React from "react";
 import Timeline from "./Timeline";
+import CreatePost from "./CreatePost";
 
 class Profile extends React.Component {
 
@@ -16,6 +17,11 @@ class Profile extends React.Component {
                     <p>Add/Remove Friend</p>
                     <p>(Hidden on your own profile)</p>
 
+                </div>
+
+                <div>
+                    <p>If signed in:</p>
+                    <CreatePost/>
                 </div>
 
                 <Timeline/>

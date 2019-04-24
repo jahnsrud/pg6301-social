@@ -7,7 +7,8 @@ class Search extends React.Component {
         super(props);
 
         this.state = {
-            users: []
+            users: [],
+            searchTerm: ""
         }
 
         this.searchUsers = this.searchUsers.bind(this);
@@ -20,11 +21,21 @@ class Search extends React.Component {
 
         event.preventDefault();
 
-        this.setState({
-            users: ["Markus", "Håvard", "Sondre", "Gullik"]
-        })
+        if (event.target.value.length > 0) {
+            this.setState({
+                searchTerm: event.target.value,
+                users: ["Markus", "Håvard", "Sondre", "Gullik"]
+            })
 
-    })
+        }  else {
+            this.setState({
+                searchTerm: event.target.value,
+                users: []
+            })
+        }
+
+
+    });
 
     render() {
         return (

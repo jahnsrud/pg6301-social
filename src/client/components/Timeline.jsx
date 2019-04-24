@@ -16,7 +16,6 @@ class Timeline extends React.Component {
     render() {
         return (
             <div>
-                <h2>Timeline</h2>
                 {
                     this.state.posts.map((option) => (
                         <Post author={"AUTHOR_EXAMPLE"} date={"00/00/0000"} content={"THIS_IS_CONTENT"} />
