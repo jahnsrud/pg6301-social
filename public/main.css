@@ -34,8 +34,26 @@ button:disabled {
   border-bottom: 1px solid gray;
   margin-bottom: 8px; }
 
+.header-logo {
+  color: black;
+  text-decoration: none;
+  display: block; }
+
 .header-link {
-  cursor: pointer; }
+  cursor: pointer;
+  display: inline;
+  color: black;
+  margin-right: 12px;
+  text-decoration: none; }
+
+.search-input {
+  display: inline;
+  padding: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 0;
+  background-color: #eeeeee; }
 
 .loginSection {
   padding: 16px;
