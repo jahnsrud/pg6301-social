@@ -9,7 +9,7 @@ class Register extends React.Component {
         super(props);
 
         if (this.props.userId !== null) {
-            Redirect("/");
+            <Redirect to="/" push />
         }
 
         this.state = {

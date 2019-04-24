@@ -6,6 +6,10 @@ class Chat extends React.Component {
     constructor(props) {
         super(props);
 
+        if (this.props.userId !== null) {
+            <Redirect to="/" push />
+        }
+
         this.state = {
             message: "",
             messages: null,
