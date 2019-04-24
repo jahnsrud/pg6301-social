@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use(session({
-    secret: 'a secret used to encrypt the session cookies',
+    secret: 'SOCIAL_SUPER_SUPERSUPER_SECRET',
     resave: false,
     saveUninitialized: false
 }));

@@ -25,7 +25,10 @@ class App extends React.Component {
         this.callBackendAPI()
             .then(res => this.setState({welcome: res.express}))
             .catch(err => console.log(err));
+
     }
+
+
 
     callBackendAPI = async () => {
         const response = await fetch("/api/welcome");

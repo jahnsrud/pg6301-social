@@ -31,7 +31,9 @@ function createUser(id, password){
 
     const user = {
         id: id,
-        balance: 1000,
+        fullName: "",
+        birthday: "",
+        location: "",
         password: password
     };
 

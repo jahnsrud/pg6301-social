@@ -17,6 +17,10 @@ class AppRouter extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.updateLogin();
+    }
+
     updateLoggedInUserId = (userId) => {
         this.setState({
             userId: userId
@@ -24,6 +28,18 @@ class AppRouter extends React.Component {
 
         console.log(userId);
     }
+
+    updateLogin = async () => {
+        const response = await fetch('/api/user', {
+            method: 'GET',
+            credentials: 'include',
+        });
+
+        if(response.status === 200){
+            const payload = await response.json();
+            this.updateLoggedInUserId(payload.userId)
+        }
+    };
 
     render() {
         return (
