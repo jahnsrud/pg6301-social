@@ -113,7 +113,7 @@ class Login extends React.Component {
                         </form>
 
                     </div>
-                <div onClick={this.doLogIn} className="button">Log in!</div>
+                <div onClick={this.doLogIn} className="button">Login</div>
 
                 </div>
 

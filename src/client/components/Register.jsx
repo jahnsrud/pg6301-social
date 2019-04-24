@@ -85,41 +85,44 @@ class Register extends React.Component {
             );
         }
 
-        let confirmMsg = "Status: OK";
+        let validationMessage = "Status: OK";
         if (this.state.confirm !== this.state.password) {
-            confirmMsg = "Not matching";
+            validationMessage = "Not matching";
         }
 
         return (
             <div>
                 <div className="login-section">
                     <div>
-                        <p>User Id:</p>
+                        <p>Username</p>
                         <input
                             type="text"
+                            placeholder="Username"
                             value={this.state.userId}
                             onChange={this.onUserIdChange}
                         />
                     </div>
                     <div>
-                        <p>Password:</p>
+                        <p>Password</p>
                         <input
                             type="password"
+                            placeholder="Password"
                             value={this.state.password}
                             onChange={this.onPasswordChange}
                         />
                     </div>
                     <div>
-                        <p>Confirm:</p>
+                        <p>Confirm Password</p>
                         <input
                             type="password"
+                            placeholder="Password"
                             value={this.state.confirm}
                             onChange={this.onConfirmChange}
                         />
-                        <div>{confirmMsg}</div>
+                        <div className="validation-message">{validationMessage}</div>
                     </div>
                     {error}
-                    <div className="btn" onClick={this.doSignUp}>
+                    <div className="button" onClick={this.doSignUp}>
                         Sign Up
                     </div>
                 </div>

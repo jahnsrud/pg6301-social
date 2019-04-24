@@ -1,9 +1,14 @@
 .button {
-  background-color: black;
+  background: #252525;
   color: white;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 30px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
+  width: 120px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11pt;
 }
 
