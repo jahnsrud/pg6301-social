@@ -4,7 +4,7 @@ import ErrorPage from "../components/ErrorPage";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Chat from "../components/Chat";
-import App from "../App";
+import App from "../components/App";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Profile from "../components/Profile";
 
