@@ -99,11 +99,12 @@ class Login extends React.Component {
                         />
 
                     </div>
+                <div onClick={this.doLogIn} className="button">Log in!</div>
+
                 </div>
 
                 {error}
 
-                <div onClick={this.doLogIn} className="btn">Log in!</div>
                 <p>Not a member yet?</p>
                 <Link to={"/register"}>Register</Link>
 

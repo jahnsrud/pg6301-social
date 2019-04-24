@@ -13,6 +13,14 @@ button {
 button:disabled {
   cursor: default; }
 
+.button {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer; }
+
 .message {
   background: lightblue; }
 
@@ -23,13 +31,13 @@ button:disabled {
   font-size: 24pt; }
 
 .header {
-  border-bottom: 1px solid gray; }
+  border-bottom: 1px solid gray;
+  margin-bottom: 8px; }
 
-.chat-button {
-  background-color: black;
-  color: white;
-  border-radius: 8px;
-  padding: 8px;
-  font-weight: bold;
+.header-link {
   cursor: pointer; }
+
+.loginSection {
+  padding: 16px;
+  border: 1px dashed black; }
 
