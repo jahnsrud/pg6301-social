@@ -1,6 +1,9 @@
-# Media Library
-A place to store your favorite media. A React app built with Express,
-Webpack and much more. 
+# Social.app
+"The application topic for this exam is about a social-media 
+website (i.e., a very simplified Facebook)." 
+
+My solution is a React app built 
+with Express, Webpack and much more. 
 
 **Screenshot here**
 
