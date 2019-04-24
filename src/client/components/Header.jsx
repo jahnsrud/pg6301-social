@@ -6,7 +6,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <NavLink to="/" className="header-link" exact={true}>
+            <NavLink to="/" className="header-logo" exact={true}>
                 <h1>Social.app</h1>
             </NavLink>
             <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
