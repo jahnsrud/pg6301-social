@@ -41,3 +41,13 @@ button:disabled {
   padding: 16px;
   border: 1px dashed black; }
 
+.post {
+  padding: 16px;
+  border: 1px dashed black; }
+
+.post-author {
+  font-weight: bold; }
+
+.post-content {
+  font-size: 16pt; }
+
