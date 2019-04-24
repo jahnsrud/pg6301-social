@@ -1,10 +1,14 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Login extends React.Component {
 
     constructor(props) {
         super(props);
+
+        if (this.props.userId !== null) {
+            Redirect("/");
+        }
 
         this.state = {
             userId: "",
@@ -12,7 +16,7 @@ class Login extends React.Component {
             errorMsg: null
         }
 
-            this.onUserIdChange = this.onUserIdChange.bind(this);
+        this.onUserIdChange = this.onUserIdChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
 
     }
@@ -77,6 +81,11 @@ class Login extends React.Component {
     };
 
     render() {
+
+        if (this.props.userId !== null) {
+            return <Redirect to="/"/>
+        }
+
         let error = <div />;
         if (this.state.errorMsg !== null) {
             error = (

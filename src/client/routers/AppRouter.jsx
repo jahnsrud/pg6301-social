@@ -61,7 +61,10 @@ class AppRouter extends React.Component {
                         <Register userId={this.state.userId}
                                   updateLoggedInUserId={this.updateLoggedInUserId}/>}
                                   exact={true}/>
-                    <Route path="/chat" component={Chat} exact={true}/>
+                    <Route path="/chat" component={() =>
+                        <Chat userId={this.state.userId}/>}
+                           exact={true}/>
+
                     <Route path="/profile" component={Profile} exact={true}/>
                     <Route component={ErrorPage}/>
                 </Switch>

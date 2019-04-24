@@ -1,18 +1,17 @@
 import React from "react";
 import Message from "./Message"
+import { Redirect } from "react-router-dom";
 
 class Chat extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            name: "Anonymous",
             message: "",
             messages: null,
-        }
+        };
 
         this.sendMessage = this.sendMessage.bind(this);
-        this.onNameChange = this.onNameChange.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
 
     }
@@ -37,22 +36,22 @@ class Chat extends React.Component {
             )
         });
     }
-
-    onNameChange = (event) => {
-        this.setState({
-            name: event.target.value
-        });
-    }
-
     onTextChange = (event) => {
         this.setState({
             message: event.target.value
         });
     }
 
+    sendMessageFromReturn = (event) => {
+        event.preventDefault();
+
+        this.sendMessage();
+
+    }
+
     sendMessage() {
         const payload = JSON.stringify({
-            author: this.state.name,
+            author: this.props.userId,
             message: this.state.message
         });
 
@@ -64,6 +63,10 @@ class Chat extends React.Component {
     }
 
     render() {
+
+        if (this.props.userId === null) {
+            return <Redirect to="/"/>
+        }
 
         let messages = <div></div>;
 
@@ -78,14 +81,9 @@ class Chat extends React.Component {
         return (
             <div>
                 <h1>Chat</h1>
-                <p>Name</p>
+                <p>My username: {this.props.userId}</p>
                 <div>
-                    <input
-                    type="text"
-                    placeholder="Name"
-                    value={this.state.name}
-                    onChange={this.onNameChange}/>
-
+                    <form onSubmit={this.sendMessageFromReturn}>
                     <input
                         type="text"
                         placeholder="Message"
@@ -96,6 +94,7 @@ class Chat extends React.Component {
                     <div className="button button-primary"
                          onClick={this.sendMessage}
                     disabled={this.state.message.length == 0}>Send</div>
+                    </form>
 
                 </div>
                 <div>

@@ -1,17 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 class Register extends React.Component {
 
     constructor(props) {
         super(props);
 
+        if (this.props.userId !== null) {
+            Redirect("/");
+        }
+
         this.state = {
             userId: "",
             password: "",
             confirm: "",
             errorMsg: null
-        }
+        };
 
     }
 
@@ -76,6 +82,11 @@ class Register extends React.Component {
     };
 
     render() {
+
+        if (this.props.userId !== null) {
+            return <Redirect to="/"/>
+        }
+
         let error = <div />;
         if (this.state.errorMsg !== null) {
             error = (
@@ -91,6 +102,7 @@ class Register extends React.Component {
         }
 
         return (
+
             <div>
                 <div className="login-section">
                     <div>
@@ -110,11 +122,10 @@ class Register extends React.Component {
                         placeholder="Full Name"
                     />
 
-                    <input
-                        type="text"
+                    <DayPickerInput
                         className="input-user-details"
-                        placeholder="Birthday"
-                    />
+                        onDayChange={day => console.log(day)} />
+
                     <input
                         type="text"
                         className="input-user-details"
