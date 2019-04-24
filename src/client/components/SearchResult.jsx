@@ -1,10 +1,14 @@
 import React from "react";
 
-const SearchResult = () => {
+const SearchResult = (props) => {
+
+    function openLink() {
+        prompt("Næmmen halla")
+    }
 
     return (
-        <div>
-            <p>*SEARCHRESULT*</p>
+        <div onClick={openLink} className="search-result-box">
+            <p>{props.name}</p>
         </div>
     )
 }
