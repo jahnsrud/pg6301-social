@@ -18,9 +18,9 @@ router.post('/api/login', passport.authenticate('local'), (req, res) => {
 
 router.post('/api/register', function(req, res){
 
-    const created = UserRepo.createUser(req.body.userId, req.body.password);
+    const created = UserRepo.createUser(req.body.userId, req.body.password, req.body.fullName, req.body.birthday, req.body.location);
 
-    if(! created){
+    if(!created){
         res.status(400).send();
         return;
     }

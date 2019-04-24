@@ -151,6 +151,7 @@ passport.deserializeUser(function (id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+userRepo.createAdmin();
 
 //--- Routes -----------
 app.use('/', routes);

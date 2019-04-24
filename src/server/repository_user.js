@@ -1,5 +1,9 @@
 const users = new Map();
 
+function createAdmin() {
+    createUser("Markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
+}
+
 function getUser(id){
 
     return users.get(id);
@@ -22,7 +26,7 @@ function verifyUser(id, password){
     return user.password === password;
 }
 
-function createUser(id, password){
+function createUser(id, password, fullName, birthday, location){
 
     if(getUser(id) !== undefined ){
         return false;
@@ -30,9 +34,9 @@ function createUser(id, password){
 
     const user = {
         id: id,
-        fullName: "",
-        birthday: "",
-        location: "",
+        fullName: fullName,
+        birthday: birthday,
+        location: location,
         password: password
     };
 
@@ -42,4 +46,4 @@ function createUser(id, password){
 
 
 
-module.exports = {getUser, verifyUser, createUser};
+module.exports = {getUser, verifyUser, createUser, createAdmin};

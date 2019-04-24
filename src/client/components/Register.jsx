@@ -15,6 +15,9 @@ class Register extends React.Component {
         this.state = {
             userId: "",
             password: "",
+            fullName: "",
+            birthday: "",
+            location: "",
             confirm: "",
             errorMsg: null
         };
@@ -37,7 +40,7 @@ class Register extends React.Component {
     // https://github.com/arcuri82/web_development_and_api_design/blob/master/les08/authentication/src/client/signup.jsx
 
     doSignUp = async () => {
-        const { userId, password, confirm } = this.state;
+        const { userId, password, fullName, birthday, location, confirm } = this.state;
 
         if (confirm !== password) {
             this.setState({ errorMsg: "Passwords do not match" });
@@ -46,7 +49,12 @@ class Register extends React.Component {
 
         const url = "/api/register";
 
-        const payload = { userId: userId, password: password };
+        const payload = {
+            userId: userId,
+            password: password,
+            fullName: fullName,
+            birthday: birthday,
+            location: location};
 
         let response;
 
