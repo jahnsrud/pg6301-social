@@ -1,4 +1,5 @@
 import React from 'react';
+import Timeline from "./components/Timeline";
 
 class App extends React.Component {
 
@@ -13,6 +14,7 @@ class App extends React.Component {
         return (
             <div>
                 <p>Server says: {this.state.welcome}</p>
+                <Timeline/>
 
             </div>
         );

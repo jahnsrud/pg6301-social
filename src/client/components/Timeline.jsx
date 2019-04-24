@@ -1,4 +1,5 @@
 import React from "react";
+import Post from "./Post";
 
 class Timeline extends React.Component {
 
@@ -6,7 +7,7 @@ class Timeline extends React.Component {
         return (
             <div>
                 <h1>Timeline</h1>
-                <p>(POSTS_HERE)</p>
+                <Post />
             </div>
         )
 
