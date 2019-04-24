@@ -32,6 +32,9 @@ class Login extends React.Component {
         this.doLogIn()
     }
 
+    // Heavily inspired by the following code:
+    // https://github.com/arcuri82/web_development_and_api_design/blob/master/les08/authentication/src/client/login.jsx
+
     doLogIn = async () => {
         const { userId, password } = this.state;
 
@@ -85,7 +88,7 @@ class Login extends React.Component {
 
         return (
             <div>
-                <div className="loginSection">
+                <div className="login-section">
                     <div>
                         <p>Username</p>
                     <form onSubmit={this.doLoginFromEnter}>
