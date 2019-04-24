@@ -6,6 +6,7 @@ import Register from "../components/Register";
 import Chat from "../components/Chat";
 import App from "../App";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Profile from "../components/Profile";
 
 class AppRouter extends React.Component {
 
@@ -39,6 +40,7 @@ class AppRouter extends React.Component {
                                exact={true}/>
                     <Route path="/register" component={Register} exact={true}/>
                     <Route path="/chat" component={Chat} exact={true}/>
+                    <Route path="/profile" component={Profile} exact={true}/>
                     <Route component={ErrorPage}/>
                 </Switch>
             </BrowserRouter>
