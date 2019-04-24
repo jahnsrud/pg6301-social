@@ -58,7 +58,7 @@ class Register extends React.Component {
         }
 
         if (response.status === 400) {
-            this.setState({ errorMsg: "Invalid userId/password" });
+            this.setState({ errorMsg: "Invalid username/password" });
             return;
         }
 
@@ -79,8 +79,8 @@ class Register extends React.Component {
         let error = <div />;
         if (this.state.errorMsg !== null) {
             error = (
-                <div className="errorMsg">
-                    <p>{this.state.errorMsg}</p>
+                <div>
+                    <p className="info-message">{this.state.errorMsg}</p>
                 </div>
             );
         }
@@ -121,7 +121,7 @@ class Register extends React.Component {
                         />
                         {
                             validationMessage.length > 0 &&
-                            <div className="validation-message">{validationMessage}</div>
+                            <div className="info-message">{validationMessage}</div>
                         }
 
                     </div>

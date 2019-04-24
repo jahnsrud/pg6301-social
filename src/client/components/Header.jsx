@@ -12,8 +12,8 @@ class Header extends React.Component {
     renderLoggedInLinks() {
         return(
             <div className="conditional-links">
-                <NavLink to="/profile" className="header-link" activeClassName="is-active" exact={true}>Profile ({this.props.userId})</NavLink>
                 <NavLink to="/chat" className="header-link" activeClassName="is-active" exact={true}>Chat</NavLink>
+                <NavLink to="/profile" className="header-link" activeClassName="is-active" exact={true}>🐶 {this.props.userId}</NavLink>
                 <p className="header-link" onClick={this.doLogout}>Sign Out</p>
             </div>
         )

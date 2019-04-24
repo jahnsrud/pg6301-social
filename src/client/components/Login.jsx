@@ -12,7 +12,7 @@ class Login extends React.Component {
             errorMsg: null
         }
 
-        this.onUserIdChange = this.onUserIdChange.bind(this);
+            this.onUserIdChange = this.onUserIdChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
 
     }
@@ -80,7 +80,7 @@ class Login extends React.Component {
         let error = <div />;
         if (this.state.errorMsg !== null) {
             error = (
-                <div className="errorMsg">
+                <div className="info-message">
                     <p>{this.state.errorMsg}</p>
                 </div>
             );
