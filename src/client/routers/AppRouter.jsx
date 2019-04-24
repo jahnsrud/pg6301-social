@@ -38,7 +38,10 @@ class AppRouter extends React.Component {
                         <Login userId={this.state.userId}
                                updateLoggedInUserId={this.updateLoggedInUserId}/>}
                                exact={true}/>
-                    <Route path="/register" component={Register} exact={true}/>
+                    <Route path="/register" component={() =>
+                        <Register userId={this.state.userId}
+                                  updateLoggedInUserId={this.updateLoggedInUserId}/>}
+                                  exact={true}/>
                     <Route path="/chat" component={Chat} exact={true}/>
                     <Route path="/profile" component={Profile} exact={true}/>
                     <Route component={ErrorPage}/>

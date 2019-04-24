@@ -85,7 +85,7 @@ class Register extends React.Component {
             );
         }
 
-        let confirmMsg = "Ok";
+        let confirmMsg = "Status: OK";
         if (this.state.confirm !== this.state.password) {
             confirmMsg = "Not matching";
         }
