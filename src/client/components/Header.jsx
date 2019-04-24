@@ -12,6 +12,7 @@ class Header extends React.Component {
     renderLoggedInLinks() {
         return(
             <div className="conditional-links">
+                <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
                 <NavLink to="/chat" className="header-link" activeClassName="is-active" exact={true}>Chat</NavLink>
                 <NavLink to="/profile" className="header-link" activeClassName="is-active" exact={true}>🐶 {this.props.userId}</NavLink>
                 <p className="header-link" onClick={this.doLogout}>Sign Out</p>
@@ -58,8 +59,6 @@ class Header extends React.Component {
                 <NavLink to="/" className="header-logo" exact={true}>
                     <h1>Social.app</h1>
                 </NavLink>
-                <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
-
                 {
                     (this.props.userId !== null) && this.renderLoggedInLinks()
                 }

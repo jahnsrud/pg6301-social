@@ -10,7 +10,13 @@ class CreatePost extends React.Component {
     render() {
         return (
            <div>
-               <p>CREATE POST!</p>
+               <div className="create-status-container">
+                   <input
+                   type="text"
+                   placeholder="What's on your mind?"
+                   className="input-status-message"/>
+                   <div className="button">Share</div>
+               </div>
            </div>
         )
 

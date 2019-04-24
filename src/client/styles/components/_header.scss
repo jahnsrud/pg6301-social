@@ -1,13 +1,14 @@
 .header {
   box-shadow: 0px 1px 3px #e2e2e2;
   margin-bottom: 8px;
-  padding: 16px;
+  padding: 32px;
 }
 
 .header-logo {
   color: black;
   text-decoration: none;
-  display: block;
+  display: inline;
+  margin-right: 12px;
 }
 
 .header-logo h1 {
@@ -15,6 +16,9 @@
   margin: 0;
   text-transform: lowercase;
   font-weight: 200;
+  margin-bottom: 12px;
+  display: inline;
+
 }
 
 .conditional-links {

@@ -9,7 +9,7 @@ body {
   margin: 0; }
 
 .content-wrapper {
-  margin: 16px; }
+  margin: 32px 120px 32px; }
 
 button {
   cursor: pointer;
@@ -53,18 +53,21 @@ button:disabled {
 .header {
   box-shadow: 0px 1px 3px #e2e2e2;
   margin-bottom: 8px;
-  padding: 16px; }
+  padding: 32px; }
 
 .header-logo {
   color: black;
   text-decoration: none;
-  display: block; }
+  display: inline;
+  margin-right: 12px; }
 
 .header-logo h1 {
   color: #2326ce;
   margin: 0;
   text-transform: lowercase;
-  font-weight: 200; }
+  font-weight: 200;
+  margin-bottom: 12px;
+  display: inline; }
 
 .conditional-links {
   display: inline; }
@@ -78,20 +81,6 @@ button:disabled {
 
 .search-container {
   display: inline-block; }
-
-.input-search {
-  display: inline;
-  padding: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  border: 0;
-  background-color: #eeeeee; }
-
-.input-chat-message {
-  display: block;
-  height: 100px;
-  width: 100%; }
 
 .login-section {
   padding: 16px;
@@ -119,4 +108,34 @@ button:disabled {
 
 .post-date {
   font-weight: bold; }
+
+.input-search {
+  display: inline;
+  padding: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 0;
+  background-color: #eeeeee; }
+
+.input-status-message {
+  padding: 8px;
+  border: none;
+  font-size: 13pt;
+  width: 100%;
+  height: 120px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; }
+
+.input-chat-message {
+  display: block;
+  height: 100px;
+  width: 100%; }
+
+.create-status-container {
+  padding: 16px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px #ababab; }
 

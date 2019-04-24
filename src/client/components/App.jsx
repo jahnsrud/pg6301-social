@@ -1,5 +1,6 @@
 import React from 'react';
 import Timeline from "./Timeline";
+import CreatePost from "./CreatePost";
 
 class App extends React.Component {
 
@@ -13,8 +14,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <p>Server says: {this.state.welcome}</p>
+                <CreatePost/>
                 <Timeline/>
+                <p>Server says: {this.state.welcome}</p>
 
             </div>
         );
