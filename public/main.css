@@ -66,6 +66,9 @@ button:disabled {
   text-transform: lowercase;
   font-weight: 200; }
 
+.conditional-links {
+  display: inline; }
+
 .header-link {
   cursor: pointer;
   display: inline;
