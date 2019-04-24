@@ -29,8 +29,9 @@ class AppRouter extends React.Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Header/>
-
+                    <Header
+                        userId={this.state.userId}
+                        updateLoggedInUserId={this.updateLoggedInUserId}/>
                 </div>
                 <div className="content-wrapper">
 
