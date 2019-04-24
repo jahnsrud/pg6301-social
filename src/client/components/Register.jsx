@@ -85,9 +85,9 @@ class Register extends React.Component {
             );
         }
 
-        let validationMessage = "Status: OK";
+        let validationMessage = "";
         if (this.state.confirm !== this.state.password) {
-            validationMessage = "Not matching";
+            validationMessage = "Passwords doesn't match";
         }
 
         return (
@@ -119,7 +119,11 @@ class Register extends React.Component {
                             value={this.state.confirm}
                             onChange={this.onConfirmChange}
                         />
-                        <div className="validation-message">{validationMessage}</div>
+                        {
+                            validationMessage.length > 0 &&
+                            <div className="validation-message">{validationMessage}</div>
+                        }
+
                     </div>
                     {error}
                     <div className="button" onClick={this.doSignUp}>

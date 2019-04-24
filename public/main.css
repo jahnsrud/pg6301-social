@@ -69,7 +69,8 @@ button:disabled {
 
 .validation-message {
   border: 1px solid black;
-  padding: 16px; }
+  padding: 16px;
+  transition: 0.2s all; }
 
 .post {
   padding: 16px;
