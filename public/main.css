@@ -46,6 +46,9 @@ button:disabled {
   margin-right: 12px;
   text-decoration: none; }
 
+.search-container {
+  display: inline-block; }
+
 .search-input {
   display: inline;
   padding: 8px;

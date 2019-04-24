@@ -25,6 +25,13 @@ class Login extends React.Component {
         this.setState({ password: event.target.value });
     };
 
+    doLoginFromEnter = (event) => {
+
+        event.preventDefault();
+
+        this.doLogIn()
+    }
+
     doLogIn = async () => {
         const { userId, password } = this.state;
 
@@ -81,22 +88,26 @@ class Login extends React.Component {
                 <div className="loginSection">
                     <div>
                         <p>Username</p>
-                    <input
+                    <form onSubmit={this.doLoginFromEnter}>
+                        <input
                         type="text"
                         value={this.state.userId}
                         placeholder="Username"
                         onChange={this.onUserIdChange}
                         />
+                    </form>
 
                     </div>
                     <div className="passwordSection">
                         <p>Password</p>
+                        <form onSubmit={this.doLoginFromEnter}>
                         <input
                             type="password"
                             value={this.state.password}
                             placeholder="Password"
                             onChange={this.onPasswordChange}
                         />
+                        </form>
 
                     </div>
                 <div onClick={this.doLogIn} className="button">Log in!</div>
