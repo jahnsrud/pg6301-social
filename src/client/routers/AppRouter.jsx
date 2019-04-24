@@ -30,7 +30,9 @@ class AppRouter extends React.Component {
             <BrowserRouter>
                 <div>
                     <Header/>
+
                 </div>
+                <div className="content-wrapper">
 
                 <Switch>
                     <Route path="/" component={App} exact={true}/>
@@ -46,6 +48,7 @@ class AppRouter extends React.Component {
                     <Route path="/profile" component={Profile} exact={true}/>
                     <Route component={ErrorPage}/>
                 </Switch>
+                </div>
             </BrowserRouter>
         );
     }

@@ -4,7 +4,12 @@ html {
 body {
   background: white;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0; }
+
+.content-wrapper {
+  margin: 16px; }
 
 button {
   cursor: pointer;
@@ -27,7 +32,17 @@ button:disabled {
   font-size: 11pt; }
 
 .message {
-  background: lightblue; }
+  background: lightblue;
+  padding: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  opacity: 1;
+  transition: 0.2s all; }
+
+.message:hover {
+  opacity: 0.8; }
 
 .message-author {
   font-weight: bold; }
@@ -36,25 +51,32 @@ button:disabled {
   font-size: 24pt; }
 
 .header {
-  border-bottom: 1px solid gray;
-  margin-bottom: 8px; }
+  box-shadow: 0px 1px 3px #e2e2e2;
+  margin-bottom: 8px;
+  padding: 16px; }
 
 .header-logo {
   color: black;
   text-decoration: none;
   display: block; }
 
+.header-logo h1 {
+  color: #2326ce;
+  margin: 0;
+  text-transform: lowercase;
+  font-weight: 200; }
+
 .header-link {
   cursor: pointer;
   display: inline;
-  color: black;
+  color: #3a3a3a;
   margin-right: 12px;
   text-decoration: none; }
 
 .search-container {
   display: inline-block; }
 
-.search-input {
+.input-search {
   display: inline;
   padding: 8px;
   -webkit-border-radius: 8px;
@@ -62,6 +84,11 @@ button:disabled {
   border-radius: 8px;
   border: 0;
   background-color: #eeeeee; }
+
+.input-chat-message {
+  display: block;
+  height: 100px;
+  width: 100%; }
 
 .login-section {
   padding: 16px;
@@ -74,11 +101,19 @@ button:disabled {
 
 .post {
   padding: 16px;
-  border: 1px dashed black; }
+  border: 1px dashed black;
+  margin-bottom: 8px; }
+
+.post-author, .post-date {
+  color: #3b3b3b;
+  font-size: 9pt; }
 
 .post-author {
   font-weight: bold; }
 
 .post-content {
   font-size: 16pt; }
+
+.post-date {
+  font-weight: bold; }
 

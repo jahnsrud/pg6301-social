@@ -1,5 +1,16 @@
 .message {
   background: lightblue;
+  padding: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  opacity: 1;
+  transition: 0.2s all;
+}
+
+.message:hover {
+  opacity: 0.8;
 }
 
 .message-author {

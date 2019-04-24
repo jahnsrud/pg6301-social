@@ -1,6 +1,7 @@
 .header {
-  border-bottom: 1px solid gray;
+  box-shadow: 0px 1px 3px #e2e2e2;
   margin-bottom: 8px;
+  padding: 16px;
 }
 
 .header-logo {
@@ -9,10 +10,17 @@
   display: block;
 }
 
+.header-logo h1 {
+  color: $main-color;
+  margin: 0;
+  text-transform: lowercase;
+  font-weight: 200;
+}
+
 .header-link {
   cursor: pointer;
   display: inline;
-  color: black;
+  color: #3a3a3a;
   margin-right: 12px;
   text-decoration: none;
 
@@ -22,12 +30,3 @@
   display: inline-block;
 }
 
-.search-input {
-  display: inline;
-  padding: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  border: 0;
-  background-color: #eeeeee;
-}

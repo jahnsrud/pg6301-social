@@ -1,6 +1,12 @@
 .post {
   padding: 16px;
   border: 1px dashed black;
+  margin-bottom: 8px;
+}
+
+.post-author, .post-date {
+  color: $detail-text-color;
+  font-size: 9pt;
 }
 
 .post-author {
@@ -9,4 +15,12 @@
 
 .post-content {
   font-size: 16pt;
+}
+
+.post-date {
+  font-weight: bold;
+}
+
+.post-image {
+
 }

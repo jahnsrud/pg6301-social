@@ -89,6 +89,7 @@ class Chat extends React.Component {
                     <input
                         type="text"
                         placeholder="Message"
+                        className="input-chat-message"
                         onChange={this.onTextChange}
                         value={this.state.message}/>
 

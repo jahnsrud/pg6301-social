@@ -9,9 +9,11 @@ class Search extends React.Component {
 
 
     searchUsers = ((event) => {
-        console.log(event)
+        console.log(event);
 
-        event.preventDefault()
+        event.preventDefault();
+
+        prompt("This is not available. Yet.");
 
     })
 
@@ -22,7 +24,7 @@ class Search extends React.Component {
                 <input
                     type="text"
                     placeholder="🔍 Search..."
-                    className="search-input"
+                    className="input-search"
                 />
                 </form>
             </div>

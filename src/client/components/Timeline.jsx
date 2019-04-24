@@ -16,13 +16,10 @@ class Timeline extends React.Component {
     render() {
         return (
             <div>
-                <h1>Timeline</h1>
+                <h2>Timeline</h2>
                 {
                     this.state.posts.map((option) => (
-                        <div>
-                            <p>{option}:</p>
-                            <Post />
-                        </div>
+                        <Post />
                     ))
                 }
 
