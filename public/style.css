@@ -1,0 +1,14 @@
+.header a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.media-box {
+    border: 1px dashed gray;
+    padding: 20px;
+}
+
+.media-box p {
+    text-decoration: none;
+}

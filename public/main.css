@@ -1,0 +1,35 @@
+html {
+  font-size: 62.5%; }
+
+body {
+  background: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem; }
+
+button {
+  cursor: pointer;
+  transition: 0.12s all; }
+
+button:disabled {
+  cursor: default; }
+
+.message {
+  background: lightblue; }
+
+.message-author {
+  font-weight: bold; }
+
+.message-content {
+  font-size: 24pt; }
+
+.header {
+  border-bottom: 1px solid gray; }
+
+.chat-button {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer; }
+
