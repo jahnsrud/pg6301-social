@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-const Repository = require('./repository');
+const UserRepo = require('./repository_user');
+const PostRepo = require('./repository_post');
 
 
 /*
@@ -17,7 +18,7 @@ router.post('/api/login', passport.authenticate('local'), (req, res) => {
 
 router.post('/api/signup', function(req, res){
 
-    const created = Repository.createUser(req.body.userId, req.body.password);
+    const created = UserRepo.createUser(req.body.userId, req.body.password);
 
     if(! created){
         res.status(400).send();

@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
-const Repository = require('./repository');
+const Repository = require('./repository_user');
 const routes = require('./routes');
 
 

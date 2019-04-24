@@ -18,7 +18,12 @@ class Post extends React.Component {
 
                 <p className="post-date">Date: {this.props.date}</p>
                 <p className="post-content">{this.props.content}</p>
-                <p className="post-image">_image_</p>
+
+                {
+                    this.props.link.length > 0 && <p className="post-image">{this.props.link}</p>
+                }
+
+
             </div>
         )
 

@@ -1,6 +1,5 @@
 const users = new Map();
 
-
 function getUser(id){
 
     return users.get(id);
@@ -42,29 +41,5 @@ function createUser(id, password){
 }
 
 
-function sendBook(senderId, receiverId, amount){
-
-    amount = parseInt(amount);
-
-    if(isNaN(amount) || amount <= 0 || senderId === receiverId){
-        return false;
-    }
-
-    const sender = users.get(senderId);
-    const receiver = users.get(receiverId);
-
-    if(sender === undefined || receiver === undefined){
-        return false;
-    }
-
-    if(sender.balance < amount){
-        return false;
-    }
-
-    sender.balance -= amount;
-    receiver.balance += amount;
-
-    return true;
-}
 
 module.exports = {getUser, verifyUser, createUser};

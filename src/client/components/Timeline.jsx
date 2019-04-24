@@ -18,7 +18,7 @@ class Timeline extends React.Component {
             <div>
                 {
                     this.state.posts.map((option) => (
-                        <Post author={"AUTHOR_EXAMPLE"} date={"00/00/0000"} content={"THIS_IS_CONTENT"} />
+                        <Post author={"AUTHOR_EXAMPLE"} date={"00/00/0000"} content={"THIS_IS_CONTENT"} link={""} key={option} />
                     ))
                 }
 

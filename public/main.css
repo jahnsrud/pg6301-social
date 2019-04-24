@@ -224,7 +224,8 @@ button:disabled {
   font-weight: bold; }
 
 .message-content {
-  font-size: 24pt; }
+  font-size: 18pt;
+  overflow-wrap: break-word; }
 
 .header {
   background: white;
