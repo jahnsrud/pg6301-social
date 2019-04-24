@@ -93,7 +93,7 @@ class Chat extends React.Component {
                         onChange={this.onTextChange}
                         value={this.state.message}/>
 
-                    <div className="button"
+                    <div className="button button-primary"
                          onClick={this.sendMessage}
                     disabled={this.state.message.length == 0}>Send</div>
 

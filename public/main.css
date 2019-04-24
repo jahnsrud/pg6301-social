@@ -19,7 +19,7 @@ button:disabled {
   cursor: default; }
 
 .button {
-  background: #2326ce;
+  background: #272727;
   color: white;
   border-radius: 30px;
   padding: 10px;
@@ -30,6 +30,9 @@ button:disabled {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 11pt; }
+
+.button-primary {
+  background: #2326ce; }
 
 .message {
   background: lightblue;
@@ -93,8 +96,8 @@ button:disabled {
 
 .post {
   padding: 16px;
-  border: 1px dashed black;
-  margin-bottom: 8px; }
+  border: 1px solid #cccccc;
+  margin-bottom: 16px; }
 
 .post-author, .post-date {
   color: #3b3b3b;
@@ -127,6 +130,14 @@ button:disabled {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px; }
+
+.input-user-details {
+  padding: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  border: 0;
+  background-color: #eeeeee; }
 
 .input-chat-message {
   display: block;

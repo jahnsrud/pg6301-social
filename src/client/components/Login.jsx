@@ -94,6 +94,7 @@ class Login extends React.Component {
                     <form onSubmit={this.doLoginFromEnter}>
                         <input
                         type="text"
+                        className="input-user-details"
                         value={this.state.userId}
                         placeholder="Username"
                         onChange={this.onUserIdChange}
@@ -106,6 +107,7 @@ class Login extends React.Component {
                         <form onSubmit={this.doLoginFromEnter}>
                         <input
                             type="password"
+                            className="input-user-details"
                             value={this.state.password}
                             placeholder="Password"
                             onChange={this.onPasswordChange}
@@ -113,15 +115,16 @@ class Login extends React.Component {
                         </form>
 
                     </div>
-                <div onClick={this.doLogIn} className="button">Login</div>
+                <div onClick={this.doLogIn} className="button button-primary">Login</div>
 
                 </div>
 
                 {error}
 
                 <p>Not a member yet?</p>
-                <Link to={"/register"}>Register</Link>
-
+                <Link to={"/register"}>
+                    <div className="button">Register</div>
+                </Link>
             </div>
         )
 

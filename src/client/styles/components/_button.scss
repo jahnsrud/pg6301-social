@@ -1,5 +1,5 @@
 .button {
-  background: $primary-color;
+  background: $button-dark;
   color: white;
   border-radius: 30px;
   padding: 10px;
@@ -10,5 +10,9 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 11pt;
+}
+
+.button-primary {
+  background: $primary-color;
 }
 

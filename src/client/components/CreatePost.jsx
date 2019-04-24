@@ -15,7 +15,7 @@ class CreatePost extends React.Component {
                    type="text"
                    placeholder="What's on your mind?"
                    className="input-status-message"/>
-                   <div className="button">Share</div>
+                   <div className="button button-primary">Share</div>
                </div>
            </div>
         )

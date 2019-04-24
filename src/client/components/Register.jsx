@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Register extends React.Component {
 
@@ -97,15 +97,34 @@ class Register extends React.Component {
                         <p>Username</p>
                         <input
                             type="text"
+                            className="input-user-details"
                             placeholder="Username"
                             value={this.state.userId}
                             onChange={this.onUserIdChange}
                         />
                     </div>
+                    <p>About</p>
+                    <input
+                        type="text"
+                        className="input-user-details"
+                        placeholder="Full Name"
+                    />
+
+                    <input
+                        type="text"
+                        className="input-user-details"
+                        placeholder="Birthday"
+                    />
+                    <input
+                        type="text"
+                        className="input-user-details"
+                        placeholder="Location"
+                    />
                     <div>
                         <p>Password</p>
                         <input
                             type="password"
+                            className="input-user-details"
                             placeholder="Password"
                             value={this.state.password}
                             onChange={this.onPasswordChange}
@@ -115,6 +134,7 @@ class Register extends React.Component {
                         <p>Confirm Password</p>
                         <input
                             type="password"
+                            className="input-user-details"
                             placeholder="Password"
                             value={this.state.confirm}
                             onChange={this.onConfirmChange}
@@ -126,10 +146,16 @@ class Register extends React.Component {
 
                     </div>
                     {error}
-                    <div className="button" onClick={this.doSignUp}>
+                    <div className="button button-primary" onClick={this.doSignUp}>
                         Sign Up
                     </div>
                 </div>
+
+                <p>Already registered?</p>
+                <Link to={"/login"}>
+                    <div className="button">Login</div>
+                </Link>
+
             </div>
         );
     }
