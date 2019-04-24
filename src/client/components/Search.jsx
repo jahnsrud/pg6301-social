@@ -37,12 +37,14 @@ class Search extends React.Component {
                     onChange={this.searchUsers}
                 />
                 </form>
+                <div className="search-results">
                 {
                     this.state.users.map((option) => (
                         <SearchResult name={option}/>
                     ))
 
                 }
+                </div>
 
             </div>
         )
