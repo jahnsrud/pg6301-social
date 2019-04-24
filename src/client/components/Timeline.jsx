@@ -6,19 +6,14 @@ class Timeline extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            posts: [1, 2, 3, 4, 5]
-        }
-
     }
-
 
     render() {
         return (
             <div>
                 {
-                    this.state.posts.map((option) => (
-                        <Post author={"AUTHOR_EXAMPLE"} date={"00/00/0000"} content={"THIS_IS_CONTENT"} link={""} key={option} />
+                    this.props.posts !== null && this.props.posts.map((post) => (
+                        <Post author={post.author} date={post.date} content={post.content} link={post.link} key={post.id} />
                     ))
                 }
 

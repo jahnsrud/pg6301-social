@@ -7,7 +7,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
-const Repository = require('./repository_user');
+const userRepo = require('./repository_user');
+const postRepo = require('./repository_post');
 const routes = require('./routes');
 
 
@@ -22,28 +23,36 @@ app.use(session({
     saveUninitialized: false
 }));
 
-books = [
-    {title: 'To Kill A Mockingbird', isbn: "ISBN_TEST"},
-    {title: 'Book 2', isbn: "ISBN_TEST"},
-    {title: 'Book 3', isbn: "ISBN_TEST"},
-    {title: 'Book 4', isbn: "ISBN_TEST"}
-]
-
-app.get('/api/book', (req, res) => {
-    const item = books[Math.floor(Math.random()*books.length)];
-    res.send(books[1]);
-});
-
-app.get('/api/all-books', (req, res) => {
-    res.send(books);
-});
-
+// Just a "fun" hello world message
 app.get('/api/welcome', (req, res) => {
     res.send({ express: 'Welcome 😎 This is your server speaking' });
 });
 
+/*
+Posts
+ */
 
-// WebSockets and Chat
+postRepo.populatePosts();
+
+app.get('/api/all-posts', (req, res) => {
+    res.json(postRepo.getAllPosts());
+});
+
+app.post('/posts', (req, res) => {
+   const post = req.body;
+   const id = postRepo.createPost(post.content, post.author, post.link);
+
+   console.log("Received: " + id);
+
+   res.status(201);
+   res.header("location", "/posts/" + id);
+   res.send();
+
+});
+
+/*
+WebSockets and Chat
+ */
 
 let counter = 0;
 const messages = [];
@@ -113,13 +122,13 @@ passport.use(new LocalStrategy(
     },
     function (userId, password, done) {
 
-        const ok = Repository.verifyUser(userId, password);
+        const ok = userRepo.verifyUser(userId, password);
 
         if (!ok) {
             return done(null, false, {message: 'Invalid username/password'});
         }
 
-        const user = Repository.getUser(userId);
+        const user = userRepo.getUser(userId);
         return done(null, user);
     }
 ));
@@ -130,7 +139,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
 
-    const user = Repository.getUser(id);
+    const user = userRepo.getUser(id);
 
     if (user !== undefined) {
         done(null, user);

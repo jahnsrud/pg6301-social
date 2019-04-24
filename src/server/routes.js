@@ -16,7 +16,7 @@ router.post('/api/login', passport.authenticate('local'), (req, res) => {
 
 });
 
-router.post('/api/signup', function(req, res){
+router.post('/api/register', function(req, res){
 
     const created = UserRepo.createUser(req.body.userId, req.body.password);
 
@@ -61,8 +61,7 @@ router.get("/api/user", (req, res) => {
 
     if(req.user){
         res.json({
-            userId: req.user.id,
-            balance: req.user.balance
+            userId: req.user.id
         });
         return;
     }
@@ -70,62 +69,5 @@ router.get("/api/user", (req, res) => {
     res.status(401).send();
 });
 
-/*
-router.post("/api/transfers", (req, res) => {
 
-    if(! req.user){
-        res.status(401).send();
-        return;
-    }
-
-    const dto = req.body;
-
-    const from = req.user.id;
-    const to = dto.to;
-    const amount = dto.amount;
-
-    const transferred = Repository.transferMoney(from, to, amount);
-
-    /*
-        In general, we would not need to support
-        both Form and JSON in the same App: just JSON.
-        Form-submissions are mainly used in server-side
-        rendering apps with no/limited JS.
-        However, here we support both just for didactic reasons.
-        As in the GUI we have possibility to submit an actual HTML form (without AJAX),
-        we need to tell the browser what to do after the POST is sent.
-        In this case, we do a 302 redirect toward the homepage (which will do a GET).
-        Note: this is not needed when using AJAX, as we do not reload a whole HTML page.
-     */
-/*
-    const form = req.is("application/x-www-form-urlencoded");
-
-    if(form){
-        res.status(302);
-        if(transferred) {
-            //back to home page
-            res.location("/");
-        } else {
-            /*
-                Note: we do not support it in the GUI,
-                but the use of query params is what
-                usually employed when displaying errors
-                coming from a Form request.
-             */
-        /*    res.location("/?error=true");
-        }
-        res.send();
-    } else {
-        //JSON
-        if (transferred) {
-            res.status(204);
-        } else {
-            res.status(400);
-        }
-
-        res.send();
-    }
-});
-
-*/
 module.exports = router;

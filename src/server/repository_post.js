@@ -4,9 +4,7 @@ let postCount = 0;
 
 function populatePosts() {
     createPost("Hello, World (1)", "Markus", "");
-    createPost("Hello, World (2)", "Markus", "");
-    createPost("Hello, World (3)", "Steve Jobs", "");
-    createPost("Hello, World (4)", "Steve Jobs", "");
+    createPost("Hello, World (2)", "Steve Jobs", "");
 }
 
 function createPost(content, author, link) {

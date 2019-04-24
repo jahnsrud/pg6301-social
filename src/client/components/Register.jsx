@@ -44,7 +44,7 @@ class Register extends React.Component {
             return;
         }
 
-        const url = "/api/signup";
+        const url = "/api/register";
 
         const payload = { userId: userId, password: password };
 

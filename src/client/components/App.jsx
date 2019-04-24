@@ -7,32 +7,55 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            welcome: "..."
+            posts: null,
+            welcomeMessage: "..."
         }
-    }
 
-    render() {
-        return (
-            <div>
-                <CreatePost/>
-                <Timeline/>
-                <p>Server says: {this.state.welcome}</p>
-
-            </div>
-        );
+        this.fetchAllPosts = this.fetchAllPosts.bind(this);
     }
 
     componentDidMount() {
-        // Call our fetch function below once the component mounts
-        this.callBackendAPI()
-            .then(res => this.setState({welcome: res.express}))
-            .catch(err => console.log(err));
 
+        this.fetchAllPosts();
+        this.fetchWelcomeMessage()
+            .then(res => this.setState({welcomeMessage: res.express}))
+            .catch(err => console.log(err));
     }
 
+    // Fetch inspired by
+    // https://github.com/arcuri82/web_development_and_api_design/blob/master/les07/server_client_separated/frontend/src/client/home.jsx
 
+    async fetchAllPosts() {
+        const url = "/api/all-posts";
+        let response;
+        let payload;
 
-    callBackendAPI = async () => {
+        try {
+            response = await fetch(url);
+            payload = await response.json();
+        } catch (err) {
+            //Network error: eg, wrong URL, no internet, etc.
+            this.setState({
+                error: "ERROR when retrieving list of posts: " + err,
+                posts: null
+            });
+            return;
+        }
+
+        if (response.status === 200) {
+            this.setState({
+                error: null,
+                posts: payload
+            });
+        } else {
+            this.setState({
+                error: "Issue with HTTP connection: status code " + response.status,
+                posts: null
+            });
+        }
+    }
+
+    fetchWelcomeMessage = async () => {
         const response = await fetch("/api/welcome");
         const body = await response.json();
 
@@ -44,6 +67,21 @@ class App extends React.Component {
         return body;
 
     };
+
+    render() {
+        return (
+            <div>
+                <CreatePost/>
+                {
+                    this.state.posts !== null && <Timeline posts={this.state.posts}/>
+                }
+                <p>Server says: {this.state.welcomeMessage}</p>
+
+            </div>
+        );
+    }
+fk
+
 
 }
 
