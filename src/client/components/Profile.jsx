@@ -7,20 +7,36 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            name: "NAME_TEST",
+            birthday: "BIRTHDAY_TEST",
+            location: "LOCATION_TEST",
+            friends: ["Someone", "Something", "Test"]
+        }
+
     }
 
+    componentDidMount() {
+
+
+
+    }
 
     render() {
         return (
             <div>
                 <h1>Profile</h1>
                 <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
-                <p>FULL NAME</p>
-                <p>Date of Birth</p>
-                <p>Location</p>
+                <p>{this.state.name}</p>
+                <p>{this.state.birthday}</p>
+                <p>{this.state.location}</p>
                 <div>
-                    <p>Friendship</p>
+                    <h3>Friends</h3>
                     <p>Add/Remove Friend</p>
+                    <ul>
+                        <li>{this.state.friends}</li>
+                        <li>...</li>
+                    </ul>
                     <p>(Hidden on your own profile)</p>
 
                 </div>
