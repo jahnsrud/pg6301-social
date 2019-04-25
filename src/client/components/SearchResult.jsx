@@ -13,7 +13,7 @@ const SearchResult = (props) => {
     return (
         <Link to={"/profile?id=" + props.user.id}>
 
-        <div onClick={openLink} className="search-result-box">
+        <div onClick={props.clearInput} className="search-result-box">
             <p>{props.user.fullName}</p>
         </div>
         </Link>

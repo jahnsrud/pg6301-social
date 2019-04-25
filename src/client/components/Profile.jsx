@@ -46,13 +46,13 @@ class Profile extends React.Component {
 
     }
 
-    /*
-    componentDidUpdate(prevProps) {
-        // Typical usage (don't forget to compare props):
-        if (this.state.userId !== prevProps.userId) {
+s
+    componentDidUpdate(prevProps, prevState) {
+    // Typical usage (don't forget to compare props):
+        if (this.state.id !== prevState.id) {
             this.fetchUser(this.state.id);
         }
-    }*/
+    }
 
 
     async fetchUser(id) {

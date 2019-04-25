@@ -13,6 +13,7 @@ class Search extends React.Component {
         }
 
         this.searchUsers = this.searchUsers.bind(this);
+        this.clearInput = this.clearInput.bind(this);
 
     }
 
@@ -51,12 +52,17 @@ class Search extends React.Component {
 
         console.log(body);
 
-        // TODO: fix
-
         this.setState({
             users: body
         });
 
+    }
+
+    clearInput() {
+        this.setState({
+            searchTerm: "",
+            users: []
+        })
     }
 
     render() {
@@ -73,7 +79,7 @@ class Search extends React.Component {
                 <div className="search-results">
                 {
                     this.state.users.map((option) => (
-                        <SearchResult user={option}/>
+                        <SearchResult user={option} clearInput={this.clearInput}/>
                     ))
 
                 }
