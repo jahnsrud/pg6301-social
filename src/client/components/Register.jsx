@@ -32,6 +32,27 @@ class Register extends React.Component {
         this.setState({ password: event.target.value, errorMsg: null });
     };
 
+    onFullNameChange = (event) => {
+        this.setState({fullName: event.target.value
+        })
+    }
+
+    onBirthdayChange = (event) => {
+        this.setState({birthday: event.target.value
+        })
+    }
+
+    onBirthdayChange = (event) => {
+        this.setState({birthday: event.target.value
+        })
+    }
+
+    onLocationChange = (event) => {
+        this.setState({location: event.target.value
+        })
+    }
+
+
     onConfirmChange = (event) => {
         this.setState({ confirm: event.target.value, errorMsg: null });
     };
@@ -128,16 +149,20 @@ class Register extends React.Component {
                         type="text"
                         className="input-user-details"
                         placeholder="Full Name"
+                        value={this.state.fullName}
+                        onChange={this.onFullNameChange}
                     />
 
                     <DayPickerInput
                         className="input-user-details"
-                        onDayChange={day => console.log(day)} />
+                         />
 
                     <input
                         type="text"
                         className="input-user-details"
                         placeholder="Location"
+                        value={this.state.location}
+                        onChange={this.onLocationChange}
                     />
                     <div>
                         <p>Password</p>

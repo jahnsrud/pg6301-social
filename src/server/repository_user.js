@@ -3,8 +3,8 @@ const users = new Map();
 function createAdmin() {
     createUser("markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
     createUser("test", "1234", "Test User", "00000000", "Oslo");
-    createUser("something", "1234", "Something", "00000000", "Oslo");
-    createUser("vivaldi", "1234", "Vivaldi app", "00000000", "Oslo");
+    createUser("chrome", "1234", "Chrome", "00000000", "Oslo");
+    createUser("vivaldi", "1234", "Vivaldi", "00000000", "Oslo");
 }
 
 function getUser(id) {
