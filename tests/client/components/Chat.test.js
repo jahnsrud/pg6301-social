@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Search from '../../src/client/components/Search';
+import Chat from '../../../src/client/components/Chat';
 
 it('Search renders without crashing', () => {
     const div = document.createElement('root');
-    ReactDOM.render(<Search/>, div);
+    ReactDOM.render(<Chat/>, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 
