@@ -12,6 +12,13 @@ test('Creating post should give id 0', () => {
 
 });
 
+test('Creating 4 predefined posts should give an array size of 4', () => {
+
+    postRepo.populatePosts();
+    expect(postRepo.posts.count).toBe(4);
+
+});
+
 test('Creating, deleting and then getting the deleted post should return a null post', () => {
 
     const content = "my_content";
