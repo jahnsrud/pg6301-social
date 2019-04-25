@@ -22,6 +22,8 @@ app.use(session({
     saveUninitialized: false
 }));
 
+userRepo.createAdmin();
+
 // Just a "fun" hello world message
 app.get('/api/welcome', (req, res) => {
     res.send({ express: 'Welcome 😎 This is your server speaking' });
@@ -178,7 +180,6 @@ passport.deserializeUser(function (id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-userRepo.createAdmin();
 
 //--- Routes -----------
 app.use('/api', userRoutes);

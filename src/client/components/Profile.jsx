@@ -84,41 +84,46 @@ s
 
     render() {
 
-        return (
+        return <div>
 
-            <div>
-
-                {
-                    (this.state.error === null) &&  <p>Profile not found</p>
-                }
+            {
+                (this.state.error === null) && <p>Profile not found</p>
+            }
 
 
-                <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
-                <h1>{this.state.name}</h1>
-                <p>{this.state.birthday}</p>
-                <p>{this.state.location}</p>
-                <div className="friends-section">
-                    <h3>Friends</h3>
-                    <p>Add/Remove Friend</p>
-                    <ul>
-                        <li>{this.state.friends}</li>
-                        <li>:MORE:</li>
-                    </ul>
-                    <p>(Hidden on your own profile)</p>
+            <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
+            <h1>{this.state.name}</h1>
+            <p>Username: {this.state.id}</p>
+            <p>{this.state.birthday}</p>
+            <p>{this.state.location}</p>
+            <div className="friends-section">
+                <h3>Friends</h3>
+                <ul>
+                    {
+                        this.state.friends.map((friend, i) => {
+                            return (<p>{friend}</p>)
 
-                </div>
+                        })
 
-                <h2>TIMELINE_HERE</h2>
+                    }
+                </ul>
 
-                <div>
-                    <p>If signed in:</p>
-                    <CreatePost/>
-                </div>
-
-                <Timeline posts={[]}/>
+                <h3>Status</h3>
+                <button className="button button-primary">+ Friend</button>
+                <button className="button">- Friend</button>
 
             </div>
-        )
+
+            <h2>TIMELINE_HERE</h2>
+
+            <div>
+                <p>If signed in:</p>
+                <CreatePost/>
+            </div>
+
+            <Timeline posts={[]}/>
+
+        </div>
 
     }
 }

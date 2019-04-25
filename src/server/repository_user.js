@@ -1,10 +1,10 @@
 const users = new Map();
 
-let idCount = 0;
-
 function createAdmin() {
-    createUser("Markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
-    createUser("Test", "1234", "Test User", "00000000", "Oslo");
+    createUser("markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
+    createUser("test", "1234", "Test User", "00000000", "Oslo");
+    createUser("something", "1234", "Something", "00000000", "Oslo");
+    createUser("vivaldi", "1234", "Vivaldi app", "00000000", "Oslo");
 }
 
 function getUser(id) {
@@ -39,12 +39,16 @@ function createUser(id, password, fullName, birthday, location){
         return false;
     }
 
+    id = id.toLowerCase();
+
     const user = {
         id: id,
+        password: password,
         fullName: fullName,
         birthday: birthday,
         location: location,
-        password: password
+        friends: []
+
     };
 
     users.set(id, user);
