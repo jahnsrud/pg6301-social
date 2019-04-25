@@ -12,7 +12,7 @@ class Post extends React.Component {
         return (
             <div className="post">
                 <Link to={"/profile?id=" + this.props.author}>
-                    <p className="post-author">{this.props.author}</p>
+                    <p className="post-author">👤 {this.props.author}</p>
                 </Link>
 
                 <p className="post-date">{this.props.dateCreated}</p>

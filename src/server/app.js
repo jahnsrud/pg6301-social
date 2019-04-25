@@ -10,7 +10,7 @@ const path = require('path');
 const userRepo = require('./repositories/repository_user');
 const postRepo = require('./repositories/repository_post');
 const userRoutes = require('./routes/user');
-
+const postsRoutes = require('./routes/post');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -214,6 +214,9 @@ app.use(passport.session());
 
 //--- Routes -----------
 app.use('/api', userRoutes);
+
+// TODO: Fix:
+// app.use('/posts', postsRoutes);
 
 //handling 404
 app.use((req, res, next) => {

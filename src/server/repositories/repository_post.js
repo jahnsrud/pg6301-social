@@ -3,10 +3,10 @@ const posts = new Map();
 let postCount = 0;
 
 function populatePosts() {
-    createPost("Hello, World", "markus", "https://www.kristiania.no");
     createPost("Testing, testing", "markus", "");
     createPost("This is a pretty cool post", "chrome", "");
-    createPost("Vivaldi", "vivaldi", "");
+    createPost("Hello, Kristiania", "westerdals", "https://www.kristiania.no");
+    createPost("Hello, World", "markus", "");
 }
 
 function createPost(content, author, link) {
