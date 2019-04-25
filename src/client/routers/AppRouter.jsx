@@ -13,7 +13,9 @@ class AppRouter extends React.Component {
     constructor() {
         super();
         this.state = {
-            userId: null
+            userId: null,
+            fullName: null
+
         };
     }
 
@@ -21,9 +23,10 @@ class AppRouter extends React.Component {
         this.updateLogin();
     }
 
-    updateLoggedInUserId = (userId) => {
+    updateLoggedInUser = (userId, fullName) => {
         this.setState({
-            userId: userId
+            userId: userId,
+            fullName: fullName
         });
 
         console.log(userId);
@@ -37,7 +40,7 @@ class AppRouter extends React.Component {
 
         if(response.status === 200){
             const payload = await response.json();
-            this.updateLoggedInUserId(payload.userId)
+            this.updateLoggedInUser(payload.userId, payload.fullName);
         }
     };
 
@@ -47,25 +50,31 @@ class AppRouter extends React.Component {
                 <div>
                     <Header
                         userId={this.state.userId}
-                        updateLoggedInUserId={this.updateLoggedInUserId}/>
+                        fullName={this.state.fullName}
+                        updateLoggedInUser={this.updateLoggedInUser}/>
                 </div>
                 <div className="content-wrapper">
 
                 <Switch>
                     <Route path="/" component={() =>
-                        <App userId={this.state.userId}/>
+                        <App userId={this.state.userId}
+                             fullName={this.state.fullName}
+                        />
                     } exact={true}/>
                     <Route path="/profile" component={() =>
                         <Profile userId={this.state.userId}
-                                 updateLoggedInUserId={this.updateLoggedInUserId}/>}
+                                 fullName={this.state.fullName}
+                                 updateLoggedInUser={this.updateLoggedInUser}/>}
                            />
                     <Route path="/login" component={() =>
                         <Login userId={this.state.userId}
-                               updateLoggedInUserId={this.updateLoggedInUserId}/>}
+                               fullName={this.state.fullName}
+                               updateLoggedInUser={this.updateLoggedInUser}/>}
                                exact={true}/>
                     <Route path="/register" component={() =>
                         <Register userId={this.state.userId}
-                                  updateLoggedInUserId={this.updateLoggedInUserId}/>}
+                                  fullName={this.state.fullName}
+                                  updateLoggedInUser={this.updateLoggedInUser}/>}
                                   exact={true}/>
                     <Route path="/chat" component={() =>
                         <Chat userId={this.state.userId}/>}

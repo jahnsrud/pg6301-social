@@ -3,8 +3,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import Search from "./Search";
 
 let profileStyles = {
-    headerLink: "header-link",
-    profileLink: "header-profile",
+    headerLink: "header-link"
 };
 
 class Header extends React.Component {
@@ -14,14 +13,12 @@ class Header extends React.Component {
 
     }
 
-
-
     renderLoggedInLinks() {
         return(
             <div className="conditional-links">
                 <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
                 <NavLink to="/chat" className="header-link" activeClassName="is-active" exact={true}>Chat</NavLink>
-                <NavLink to="/profile" className={`${profileStyles.headerLink} ${profileStyles.profileLink}`} activeClassName="is-active" exact={true}>{this.props.userId.toLowerCase()}</NavLink>
+                <NavLink to="/profile" className={`${profileStyles.headerLink}`} activeClassName="is-active" exact={true}>{"👤 " + this.props.fullName}</NavLink>
                 <p className="header-link" onClick={this.doLogout}>Sign Out</p>
             </div>
         )
@@ -56,7 +53,7 @@ class Header extends React.Component {
             return;
         }
 
-        this.props.updateLoggedInUserId(null);
+        this.props.updateLoggedInUser(null, null);
         this.props.history.push("/");
         <Redirect to="/" push />
 

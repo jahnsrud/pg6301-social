@@ -101,7 +101,7 @@ class Register extends React.Component {
         }
 
         this.setState({ errorMsg: null });
-        this.props.updateLoggedInUserId(userId);
+        this.props.updateLoggedInUser(userId, fullName);
         this.props.history.push("/");
     };
 

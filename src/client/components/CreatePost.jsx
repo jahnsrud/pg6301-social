@@ -7,12 +7,12 @@ class CreatePost extends React.Component {
 
         this.state = {
             content: "",
-            author: "",
             link: ""
         };
 
         this.submitPost = this.submitPost.bind(this);
         this.didTypeMessage = this.didTypeMessage.bind(this);
+        this.didTypeLink = this.didTypeLink.bind(this);
 
     }
 
@@ -27,7 +27,7 @@ class CreatePost extends React.Component {
     submitPost = async (content, author, link) => {
         const url = "/api/posts";
 
-        author = this.props.userId;
+        author = this.props.author;
         content = this.state.content;
         link = this.state.link;
 

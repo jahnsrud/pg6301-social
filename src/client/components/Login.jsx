@@ -76,7 +76,7 @@ class Login extends React.Component {
 
         this.setState({ errorMsg: null });
 
-        this.props.updateLoggedInUserId(userId);
+        this.props.updateLoggedInUser(userId);
         this.props.history.push("/");
     };
 
