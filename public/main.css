@@ -207,6 +207,17 @@ button:disabled {
 .button-primary {
   background: #2326ce; }
 
+.button-add-attachment {
+  background: #3b3b3b;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11pt;
+  color: white;
+  padding: 10px;
+  border-radius: 30px; }
+
 .message {
   background: lightblue;
   padding: 16px;

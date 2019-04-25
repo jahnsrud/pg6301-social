@@ -6,9 +6,10 @@ class CreatePost extends React.Component {
         super(props);
 
         this.state = {
-          content: "",
-          author: "",
-          link: ""
+            content: "",
+            author: "",
+            link: "",
+            shouldAttach: false
         };
 
         this.submitPost = this.submitPost.bind(this);
@@ -46,6 +47,12 @@ class CreatePost extends React.Component {
         return response.status === 201;
     };
 
+    attachPost = (event) => {
+        this.setState({
+            shouldAttach: !this.state.shouldAttach
+        });
+    }
+
     render() {
         return (
            <div>
@@ -56,6 +63,15 @@ class CreatePost extends React.Component {
                    className="input-status-message"
                    value={this.state.content}
                    onChange={this.didTypeMessage}/>
+
+                   <div onClick={this.attachPost} className="button-add-attachment">📎 Add Link</div>
+
+                   {
+                       this.state.shouldAttach && <input
+                       type="text"
+                       placeholder="https://"/>
+                   }
+
                    <div onClick={this.submitPost} className="button button-primary">Share</div>
                </div>
            </div>
