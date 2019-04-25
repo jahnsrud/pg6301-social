@@ -71,6 +71,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
+
+                {
+                    (this.props.userId === null) && <p>Not signed in!</p>
+                }
                 <CreatePost/>
                 {
                     this.state.posts !== null && <Timeline posts={this.state.posts}/>

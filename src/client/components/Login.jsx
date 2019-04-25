@@ -62,7 +62,7 @@ class Login extends React.Component {
         }
 
         if (response.status === 401) {
-            this.setState({ errorMsg: "Invalid userId/password" });
+            this.setState({ errorMsg: "Invalid username or password" });
             return;
         }
 

@@ -52,7 +52,9 @@ class AppRouter extends React.Component {
                 <div className="content-wrapper">
 
                 <Switch>
-                    <Route path="/" component={App} exact={true}/>
+                    <Route path="/" component={() =>
+                        <App userId={this.state.userId}/>
+                    } exact={true}/>
                     <Route path="/profile" component={() =>
                         <Profile userId={this.state.userId}
                                  updateLoggedInUserId={this.updateLoggedInUserId}/>}

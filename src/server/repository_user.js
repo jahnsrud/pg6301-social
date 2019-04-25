@@ -8,7 +8,7 @@ function createAdmin() {
 }
 
 function getUser(id) {
-    let user = users.get(id);
+    let user = users.get(id.toLowerCase());
 
     // Crashing :(
     // user.delete("password");
@@ -18,7 +18,7 @@ function getUser(id) {
 
 function verifyUser(id, password) {
 
-    const user = getUser(id);
+    const user = getUser(id.toLowerCase());
 
     if(user === undefined){
         return false;
@@ -35,11 +35,11 @@ function verifyUser(id, password) {
 
 function createUser(id, password, fullName, birthday, location){
 
+    id = id.toLowerCase();
+
     if(getUser(id) !== undefined ){
         return false;
     }
-
-    id = id.toLowerCase();
 
     const user = {
         id: id,

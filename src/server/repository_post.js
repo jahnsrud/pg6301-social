@@ -48,8 +48,15 @@ function updatePost(post) {
 
 }
 
-function getAllPostsFromAuthor(author) {
+function getPostsFromAuthor(author) {
     return posts.values().filter(b => b.author === author);
 }
 
-module.exports = {populatePosts, getAllPosts, getAllPostsFromAuthor, createPost, getPost, updatePost, deletePost};
+function getPostsFromAuthors(authors) {
+
+    // TODO: FIX!
+    return posts.values().filter(b => b.author === author);
+
+}
+
+module.exports = {populatePosts, getAllPosts, getPostsFromAuthor, getPostsFromAuthors, createPost, getPost, updatePost, deletePost};

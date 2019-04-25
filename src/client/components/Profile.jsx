@@ -90,38 +90,51 @@ s
                 (this.state.error === null) && <p>Profile not found</p>
             }
 
-
             <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
             <h1>{this.state.name}</h1>
             <p>Username: {this.state.id}</p>
-            <p>{this.state.birthday}</p>
-            <p>{this.state.location}</p>
-            <div className="friends-section">
-                <h3>Friends</h3>
-                <ul>
-                    {
-                        this.state.friends.map((friend, i) => {
-                            return (<p>{friend}</p>)
 
-                        })
+            {
+                (this.props.userId !== null) && <div>
 
-                    }
-                </ul>
+                    <p>{this.state.birthday}</p>
+                    <p>{this.state.location}</p>
+                    <div className="friends-section">
+                        <h3>Friends ({this.state.friends.length})</h3>
+                        <ul>
+                            {
+                                this.state.friends.map((friend, i) => {
+                                    return (<p>{friend}</p>)
 
-                <h3>Status</h3>
-                <button className="button button-primary">+ Friend</button>
-                <button className="button">- Friend</button>
+                                })
 
-            </div>
+                            }
+                        </ul>
 
-            <h2>TIMELINE_HERE</h2>
+                        <h3>Status</h3>
+                        <button className="button button-primary">+ Friend</button>
+                        <button className="button">- Friend</button>
 
-            <div>
-                <p>If signed in:</p>
-                <CreatePost/>
-            </div>
+                    </div>
 
-            <Timeline posts={[]}/>
+                    <h2>TIMELINE_HERE</h2>
+
+                    <div>
+                        <p>If signed in:</p>
+                        <CreatePost/>
+                    </div>
+
+                    <Timeline posts={[]}/>
+
+                </div>
+            }
+
+            {
+                (this.props.userId == null) && <p className="info-message">Login to see more</p>
+            }
+
+
+
 
         </div>
 
