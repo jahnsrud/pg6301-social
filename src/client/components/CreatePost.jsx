@@ -21,7 +21,7 @@ class CreatePost extends React.Component {
     };
 
     submitPost = async (content, author, link) => {
-        const url = "/posts";
+        const url = "/api/posts";
 
         // TODO: Fix
         content = this.state.content;

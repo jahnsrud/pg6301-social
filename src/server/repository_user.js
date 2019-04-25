@@ -5,12 +5,16 @@ function createAdmin() {
     createUser("Test", "1234", "Test User", "00000000", "Oslo");
 }
 
-function getUser(id){
+function getUser(id) {
+    let user = users.get(id);
 
-    return users.get(id);
+    // Crashing :(
+    // user.delete("password");
+
+    return user;
 }
 
-function verifyUser(id, password){
+function verifyUser(id, password) {
 
     const user = getUser(id);
 

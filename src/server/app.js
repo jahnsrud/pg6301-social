@@ -9,7 +9,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 const userRepo = require('./repository_user');
 const postRepo = require('./repository_post');
-const routes = require('./routes/user');
+const userRoutes = require('./routes/user');
 
 
 app.use(bodyParser.json());
@@ -52,14 +52,14 @@ app.get('/api/all-posts', (req, res) => {
     res.json(postRepo.getAllPosts());
 });
 
-app.post('/posts', (req, res) => {
+app.post('/api/posts', (req, res) => {
    const post = req.body;
    const id = postRepo.createPost(post.content, post.author, post.link);
 
    console.log("Received: " + id);
 
    res.status(201);
-   res.header("location", "/posts/" + id);
+   res.header("location", "/api/posts/" + id);
    res.send();
 
 });
@@ -168,7 +168,7 @@ app.use(passport.session());
 userRepo.createAdmin();
 
 //--- Routes -----------
-app.use('/', routes);
+app.use('/api', userRoutes);
 
 //handling 404
 app.use((req, res, next) => {

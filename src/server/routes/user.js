@@ -9,12 +9,12 @@ const UserRepo = require('../repository_user');
     username/password are correct.
     See "passport.use(new LocalStrategy" in app.js
  */
-router.post('/api/login', passport.authenticate('local'), (req, res) => {
+router.post('/login', passport.authenticate('local'), (req, res) => {
     res.status(204).send();
 
 });
 
-router.post('/api/register', function(req, res){
+router.post('/register', function(req, res){
 
     const created = UserRepo.createUser(req.body.userId, req.body.password, req.body.fullName, req.body.birthday, req.body.location);
 
@@ -40,7 +40,7 @@ router.post('/api/register', function(req, res){
     });
 });
 
-router.post('/api/logout', function(req, res){
+router.post('/logout', function(req, res){
 
     req.logout();
     res.status(204).send();
@@ -50,7 +50,7 @@ router.post('/api/logout', function(req, res){
 /*
     Provide info on logged in user
  */
-router.get("/api/user", (req, res) => {
+router.get("/user", (req, res) => {
 
     /*
         If a user is logged in by providing the right session cookie,
