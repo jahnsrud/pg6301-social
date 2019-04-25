@@ -5,7 +5,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Chat from "../components/Chat";
 import App from "../components/App";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Profile from "../components/Profile";
 
 class AppRouter extends React.Component {
@@ -30,7 +30,7 @@ class AppRouter extends React.Component {
         });
 
         console.log(userId);
-    }
+    };
 
     updateLogin = async () => {
         const response = await fetch('/api/user', {
@@ -38,7 +38,7 @@ class AppRouter extends React.Component {
             credentials: 'include',
         });
 
-        if(response.status === 200){
+        if (response.status === 200) {
             const payload = await response.json();
             this.updateLoggedInUser(payload.userId, payload.fullName);
         }
@@ -55,32 +55,32 @@ class AppRouter extends React.Component {
                 </div>
                 <div className="content-wrapper">
 
-                <Switch>
-                    <Route path="/" component={() =>
-                        <App userId={this.state.userId}
-                             fullName={this.state.fullName}
-                        />
-                    } exact={true}/>
-                    <Route path="/profile" component={() =>
-                        <Profile userId={this.state.userId}
+                    <Switch>
+                        <Route path="/" component={() =>
+                            <App userId={this.state.userId}
                                  fullName={this.state.fullName}
-                                 updateLoggedInUser={this.updateLoggedInUser}/>}
-                           />
-                    <Route path="/login" component={() =>
-                        <Login userId={this.state.userId}
-                               fullName={this.state.fullName}
-                               updateLoggedInUser={this.updateLoggedInUser}/>}
+                            />
+                        } exact={true}/>
+                        <Route path="/profile" component={() =>
+                            <Profile userId={this.state.userId}
+                                     fullName={this.state.fullName}
+                                     updateLoggedInUser={this.updateLoggedInUser}/>}
+                        />
+                        <Route path="/login" component={() =>
+                            <Login userId={this.state.userId}
+                                   fullName={this.state.fullName}
+                                   updateLoggedInUser={this.updateLoggedInUser}/>}
                                exact={true}/>
-                    <Route path="/register" component={() =>
-                        <Register userId={this.state.userId}
-                                  fullName={this.state.fullName}
-                                  updateLoggedInUser={this.updateLoggedInUser}/>}
-                                  exact={true}/>
-                    <Route path="/chat" component={() =>
-                        <Chat userId={this.state.userId}/>}
-                           exact={true}/>
-                    <Route component={ErrorPage}/>
-                </Switch>
+                        <Route path="/register" component={() =>
+                            <Register userId={this.state.userId}
+                                      fullName={this.state.fullName}
+                                      updateLoggedInUser={this.updateLoggedInUser}/>}
+                               exact={true}/>
+                        <Route path="/chat" component={() =>
+                            <Chat userId={this.state.userId}/>}
+                               exact={true}/>
+                        <Route component={ErrorPage}/>
+                    </Switch>
                 </div>
             </BrowserRouter>
         );

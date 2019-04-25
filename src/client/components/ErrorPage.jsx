@@ -8,6 +8,6 @@ const ErrorPage = () => {
             <p>That's all we know.</p>
         </div>
     )
-}
+};
 
 export default ErrorPage;

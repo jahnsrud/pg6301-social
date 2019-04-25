@@ -61,4 +61,13 @@ function getPostsFromAuthors(authors) {
 
 }
 
-module.exports = {populatePosts, getAllPosts, getPostsFromAuthor, getPostsFromAuthors, createPost, getPost, updatePost, deletePost};
+module.exports = {
+    populatePosts,
+    getAllPosts,
+    getPostsFromAuthor,
+    getPostsFromAuthors,
+    createPost,
+    getPost,
+    updatePost,
+    deletePost
+};

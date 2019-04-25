@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
@@ -25,41 +25,44 @@ class Register extends React.Component {
     }
 
     onUserIdChange = (event) => {
-        this.setState({ userId: event.target.value, errorMsg: null });
+        this.setState({userId: event.target.value, errorMsg: null});
     };
 
     onPasswordChange = (event) => {
-        this.setState({ password: event.target.value, errorMsg: null });
+        this.setState({password: event.target.value, errorMsg: null});
     };
 
     onFullNameChange = (event) => {
-        this.setState({fullName: event.target.value
+        this.setState({
+            fullName: event.target.value
         })
-    }
+    };
 
     onBirthdayChange = (event) => {
-        this.setState({birthday: event.target.value
+        this.setState({
+            birthday: event.target.value
         })
-    }
+    };
 
     onLocationChange = (event) => {
-        this.setState({location: event.target.value
+        this.setState({
+            location: event.target.value
         })
-    }
+    };
 
 
     onConfirmChange = (event) => {
-        this.setState({ confirm: event.target.value, errorMsg: null });
+        this.setState({confirm: event.target.value, errorMsg: null});
     };
 
     // Heavily inspired by the following code:
     // https://github.com/arcuri82/web_development_and_api_design/blob/master/les08/authentication/src/client/signup.jsx
 
     doSignUp = async () => {
-        const { userId, password, fullName, birthday, location, confirm } = this.state;
+        const {userId, password, fullName, birthday, location, confirm} = this.state;
 
         if (confirm !== password) {
-            this.setState({ errorMsg: "Passwords do not match" });
+            this.setState({errorMsg: "Passwords do not match"});
             return;
         }
 
@@ -70,7 +73,8 @@ class Register extends React.Component {
             password: password,
             fullName: fullName,
             birthday: birthday,
-            location: location};
+            location: location
+        };
 
         let response;
 
@@ -83,12 +87,12 @@ class Register extends React.Component {
                 body: JSON.stringify(payload)
             });
         } catch (err) {
-            this.setState({ errorMsg: "Failed to connect to server: " + err });
+            this.setState({errorMsg: "Failed to connect to server: " + err});
             return;
         }
 
         if (response.status === 400) {
-            this.setState({ errorMsg: "Invalid username/password" });
+            this.setState({errorMsg: "Invalid username/password"});
             return;
         }
 
@@ -100,7 +104,7 @@ class Register extends React.Component {
             return;
         }
 
-        this.setState({ errorMsg: null });
+        this.setState({errorMsg: null});
         this.props.updateLoggedInUser(userId, fullName);
         this.props.history.push("/");
     };
@@ -111,7 +115,7 @@ class Register extends React.Component {
             return <Redirect to="/"/>
         }
 
-        let error = <div />;
+        let error = <div/>;
         if (this.state.errorMsg !== null) {
             error = (
                 <div>
@@ -151,7 +155,7 @@ class Register extends React.Component {
                     <p className="input-heading">Birthday</p>
                     <DayPickerInput
                         className="input-user-details"
-                         />
+                    />
                     <p className="input-heading">Location</p>
                     <input
                         type="text"
@@ -160,7 +164,7 @@ class Register extends React.Component {
                         value={this.state.location}
                         onChange={this.onLocationChange}
                     />
-                    <br />
+                    <br/>
                     <div>
                         <p className="input-heading">Password</p>
                         <input
@@ -187,7 +191,7 @@ class Register extends React.Component {
 
                     </div>
                     {error}
-                    <br />
+                    <br/>
                     <div className="button button-primary" onClick={this.doSignUp}>
                         Sign Up
                     </div>

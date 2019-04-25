@@ -27,7 +27,7 @@ postRepo.populatePosts();
 
 // Just a "fun" hello world message
 app.get('/api/welcome', (req, res) => {
-    res.send({ express: 'Welcome 😎 This is your server speaking' });
+    res.send({express: 'Welcome 😎 This is your server speaking'});
 });
 
 app.get("/api/users/:id", (req, res) => {
@@ -44,7 +44,7 @@ app.get("/api/users/:id", (req, res) => {
 });
 
 app.get("/api/users/search/:id", (req, res) => {
-    const users = userRepo.findUsers(req.params["id"])
+    const users = userRepo.findUsers(req.params["id"]);
 
     if (users === undefined || users === null) {
         res.status(404);
@@ -55,7 +55,6 @@ app.get("/api/users/search/:id", (req, res) => {
     }
 
 });
-
 
 
 /*
@@ -100,14 +99,14 @@ app.ws('/', (ws, req) => {
 });
 
 app.post('/api/posts', (req, res) => {
-   const post = req.body;
-   const id = postRepo.createPost(post.content, post.author, post.link);
+    const post = req.body;
+    const id = postRepo.createPost(post.content, post.author, post.link);
 
-   console.log("Received: " + id);
+    console.log("Received: " + id);
 
-   res.status(201);
-   res.header("location", "/api/posts/" + id);
-   res.send();
+    res.status(201);
+    res.header("location", "/api/posts/" + id);
+    res.send();
 
 });
 
@@ -126,7 +125,7 @@ function messageIsValid(input) {
     return false;
 }
 
-app.ws("/chat_api", function(ws, req) {
+app.ws("/chat_api", function (ws, req) {
     console.log('Connected: WebSocket');
 
     /*
@@ -134,7 +133,7 @@ app.ws("/chat_api", function(ws, req) {
         Note: this would not handle the case of a client that already
         had the data from previous connection, and started a new one (will get duplicates)
      */
-    
+
     ws.send(JSON.stringify(messages));
     ws.on('message', fromClient => {
         /*

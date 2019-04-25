@@ -17,11 +17,11 @@ class CreatePost extends React.Component {
     }
 
     didTypeMessage = (event) => {
-        this.setState({ content: event.target.value });
+        this.setState({content: event.target.value});
     };
 
-    didTypeLink= (event) => {
-        this.setState({ link: event.target.value });
+    didTypeLink = (event) => {
+        this.setState({link: event.target.value});
     };
 
     submitPost = async (content, author, link) => {
@@ -51,32 +51,32 @@ class CreatePost extends React.Component {
             content: "",
             author: "",
             link: ""
-        })
+        });
 
         return response.status === 201;
     };
 
     render() {
         return (
-           <div>
-               <div className="create-status-container">
-                   <input
-                   type="text"
-                   placeholder="What's on your mind?"
-                   className="input-status-message"
-                   value={this.state.content}
-                   onChange={this.didTypeMessage}/>
+            <div>
+                <div className="create-status-container">
+                    <input
+                        type="text"
+                        placeholder="What's on your mind?"
+                        className="input-status-message"
+                        value={this.state.content}
+                        onChange={this.didTypeMessage}/>
 
-                   <input
-                       type="text"
-                       placeholder="🔗 Add Link..."
-                       className="input-link"
-                       value={this.state.link}
-                       onChange={this.didTypeLink}/>
+                    <input
+                        type="text"
+                        placeholder="🔗 Add Link..."
+                        className="input-link"
+                        value={this.state.link}
+                        onChange={this.didTypeLink}/>
 
-                   <div onClick={this.submitPost} className="button button-primary">Share</div>
-               </div>
-           </div>
+                    <div onClick={this.submitPost} className="button button-primary">Share</div>
+                </div>
+            </div>
         )
 
     }

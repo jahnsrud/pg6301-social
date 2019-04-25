@@ -14,11 +14,11 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 
 });
 
-router.post('/register', function(req, res){
+router.post('/register', function (req, res) {
 
     const created = UserRepo.createUser(req.body.userId, req.body.password, req.body.fullName, req.body.birthday, req.body.location);
 
-    if(!created){
+    if (!created) {
         res.status(400).send();
         return;
     }
@@ -40,7 +40,7 @@ router.post('/register', function(req, res){
     });
 });
 
-router.post('/logout', function(req, res){
+router.post('/logout', function (req, res) {
 
     req.logout();
     res.status(204).send();
@@ -58,7 +58,7 @@ router.get("/user", (req, res) => {
         and add it to the incoming "req" object
      */
 
-    if(req.user){
+    if (req.user) {
         res.json({
             userId: req.user.id
         });
@@ -67,8 +67,6 @@ router.get("/user", (req, res) => {
 
     res.status(401).send();
 });
-
-
 
 
 module.exports = router;

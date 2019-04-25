@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Login extends React.Component {
 
@@ -7,14 +7,14 @@ class Login extends React.Component {
         super(props);
 
         if (this.props.userId !== null) {
-            <Redirect to="/" push />
+            <Redirect to="/" push/>
         }
 
         this.state = {
             userId: "",
             password: "",
             errorMsg: null
-        }
+        };
 
         this.onUserIdChange = this.onUserIdChange.bind(this);
         this.onPasswordChange = this.onPasswordChange.bind(this);
@@ -22,11 +22,11 @@ class Login extends React.Component {
     }
 
     onUserIdChange = (event) => {
-        this.setState({ userId: event.target.value });
+        this.setState({userId: event.target.value});
     };
 
     onPasswordChange = (event) => {
-        this.setState({ password: event.target.value });
+        this.setState({password: event.target.value});
     };
 
     doLoginFromEnter = (event) => {
@@ -34,17 +34,17 @@ class Login extends React.Component {
         event.preventDefault();
 
         this.doLogIn()
-    }
+    };
 
     // Heavily inspired by the following code:
     // https://github.com/arcuri82/web_development_and_api_design/blob/master/les08/authentication/src/client/login.jsx
 
     doLogIn = async () => {
-        const { userId, password } = this.state;
+        const {userId, password} = this.state;
 
         const url = "/api/login";
 
-        const payload = { userId: userId, password: password };
+        const payload = {userId: userId, password: password};
 
         let response;
 
@@ -57,12 +57,12 @@ class Login extends React.Component {
                 body: JSON.stringify(payload)
             });
         } catch (err) {
-            this.setState({ errorMsg: "Failed to connect to server: " + err });
+            this.setState({errorMsg: "Failed to connect to server: " + err});
             return;
         }
 
         if (response.status === 401) {
-            this.setState({ errorMsg: "Invalid username or password" });
+            this.setState({errorMsg: "Invalid username or password"});
             return;
         }
 
@@ -74,7 +74,7 @@ class Login extends React.Component {
             return;
         }
 
-        this.setState({ errorMsg: null });
+        this.setState({errorMsg: null});
 
         this.props.updateLoggedInUser(userId);
         this.props.history.push("/");
@@ -86,7 +86,7 @@ class Login extends React.Component {
             return <Redirect to="/"/>
         }
 
-        let error = <div />;
+        let error = <div/>;
         if (this.state.errorMsg !== null) {
             error = (
                 <div className="info-message">
@@ -101,43 +101,43 @@ class Login extends React.Component {
                     <h2>Welcome back!</h2>
                     <div>
                         <p className="input-heading">Username</p>
-                    <form onSubmit={this.doLoginFromEnter}>
-                        <input
-                        type="text"
-                        className="input-user-details"
-                        value={this.state.userId}
-                        placeholder="Username"
-                        onChange={this.onUserIdChange}
-                        />
-                    </form>
+                        <form onSubmit={this.doLoginFromEnter}>
+                            <input
+                                type="text"
+                                className="input-user-details"
+                                value={this.state.userId}
+                                placeholder="Username"
+                                onChange={this.onUserIdChange}
+                            />
+                        </form>
 
                     </div>
                     <div className="passwordSection">
                         <p className="input-heading">Password</p>
                         <form onSubmit={this.doLoginFromEnter}>
-                        <input
-                            type="password"
-                            className="input-user-details"
-                            value={this.state.password}
-                            placeholder="Password"
-                            onChange={this.onPasswordChange}
-                        />
+                            <input
+                                type="password"
+                                className="input-user-details"
+                                value={this.state.password}
+                                placeholder="Password"
+                                onChange={this.onPasswordChange}
+                            />
                         </form>
 
                     </div>
-                    <br />
-                <div onClick={this.doLogIn} className="button button-primary">Login</div>
+                    <br/>
+                    <div onClick={this.doLogIn} className="button button-primary">Login</div>
 
                 </div>
 
                 {error}
 
                 <div className="change-login-type-box">
-                 <p>Not a member yet?</p>
-                 <Link to={"/register"}>
-                     <div className="button">Register</div>
-                 </Link>
-                 </div>
+                    <p>Not a member yet?</p>
+                    <Link to={"/register"}>
+                        <div className="button">Register</div>
+                    </Link>
+                </div>
             </div>
         )
 

@@ -12,13 +12,13 @@ class Timeline extends React.Component {
         return (
             <div>
                 {
-                 (this.props.posts !== null) && this.props.posts.map((post, i) => {
+                    (this.props.posts !== null) && this.props.posts.map((post, i) => {
                         return (
                             <Post author={post.author}
-                              dateCreated={moment(post.dateCreated).format('MM/DD/YYYY h:mm')}
-                              content={post.content}
-                              link={post.link}
-                              key={post.id} />
+                                  dateCreated={moment(post.dateCreated).format('MM/DD/YYYY h:mm')}
+                                  content={post.content}
+                                  link={post.link}
+                                  key={post.id}/>
                         )
                     })
                 }

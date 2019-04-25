@@ -11,7 +11,7 @@ class Post extends React.Component {
     render() {
         return (
             <div className="post">
-                <Link to={"/profile?id="+this.props.author}>
+                <Link to={"/profile?id=" + this.props.author}>
                     <p className="post-author">{this.props.author}</p>
                 </Link>
 

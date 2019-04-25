@@ -1,9 +1,11 @@
 import React from "react";
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
-import { Redirect, Link } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Profile extends React.Component {
+
+    s;
 
     constructor(props) {
         super(props);
@@ -14,14 +16,14 @@ class Profile extends React.Component {
             console.log("Id from props: " + id);
 
             if (id == null) {
-                <Redirect to="/" push />
+                <Redirect to="/" push/>
             }
 
         } else {
             // console.log("Null: " + id);
         }
 
-        console.log("Profile: Looking for user: " + id)
+        console.log("Profile: Looking for user: " + id);
 
         this.state = {
             id: id,
@@ -47,9 +49,8 @@ class Profile extends React.Component {
 
     }
 
-s
     componentDidUpdate(prevProps, prevState) {
-    // Typical usage (don't forget to compare props):
+        // Typical usage (don't forget to compare props):
         if (this.state.id !== prevState.id) {
             this.fetchUser(this.state.id);
         }
@@ -139,10 +140,9 @@ s
             }
 
             {
-                (this.props.userId == null) && <Link to="/login"> <p className="info-message">Login to see more</p></Link>
+                (this.props.userId == null) &&
+                <Link to="/login"><p className="info-message">Login to see more</p></Link>
             }
-
-
 
 
         </div>

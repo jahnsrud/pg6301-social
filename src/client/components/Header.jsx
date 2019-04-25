@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import Search from "./Search";
 
 let profileStyles = {
@@ -14,21 +14,23 @@ class Header extends React.Component {
     }
 
     renderLoggedInLinks() {
-        return(
+        return (
             <div className="conditional-links">
                 <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
                 <NavLink to="/chat" className="header-link" activeClassName="is-active" exact={true}>Chat</NavLink>
-                <NavLink to="/profile" className={`${profileStyles.headerLink}`} activeClassName="is-active" exact={true}>{"👤 " + this.props.userId.toLowerCase()}</NavLink>
+                <NavLink to="/profile" className={`${profileStyles.headerLink}`} activeClassName="is-active"
+                         exact={true}>{"👤 " + this.props.userId.toLowerCase()}</NavLink>
                 <p className="header-link" onClick={this.doLogout}>Sign Out</p>
             </div>
         )
     };
 
     renderUnregisteredLinks() {
-        return(
+        return (
             <div className="conditional-links">
                 <NavLink to="/login" className="header-link" activeClassName="is-active" exact={true}>Login</NavLink>
-                <NavLink to="/register" className="header-link" activeClassName="is-active" exact={true}>Register</NavLink>
+                <NavLink to="/register" className="header-link" activeClassName="is-active"
+                         exact={true}>Register</NavLink>
             </div>
         )
     }
@@ -42,7 +44,7 @@ class Header extends React.Component {
         let response;
 
         try {
-            response = await fetch(url, { method: "post" });
+            response = await fetch(url, {method: "post"});
         } catch (err) {
             alert("Failed to connect to server: " + err);
             return;
@@ -55,7 +57,7 @@ class Header extends React.Component {
 
         this.props.updateLoggedInUser(null, null);
         this.props.history.push("/");
-        <Redirect to="/" push />
+        <Redirect to="/" push/>
 
     };
 

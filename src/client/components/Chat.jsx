@@ -1,13 +1,13 @@
 import React from "react";
 import Message from "./Message"
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class Chat extends React.Component {
     constructor(props) {
         super(props);
 
         if (this.props.userId !== null) {
-            <Redirect to="/" push />
+            <Redirect to="/" push/>
         }
 
         this.state = {
@@ -34,7 +34,7 @@ class Chat extends React.Component {
             const msgList = JSON.parse(event.data);
 
             this.setState(
-                prev=> {
+                prev => {
                     if (prev.messages === null) {
                         return {messages: msgList}
                     } else {
@@ -49,14 +49,14 @@ class Chat extends React.Component {
         this.setState({
             message: event.target.value
         });
-    }
+    };
 
     sendMessageFromReturn = (event) => {
         event.preventDefault();
 
         this.sendMessage();
 
-    }
+    };
 
     sendMessage() {
         const payload = JSON.stringify({
@@ -79,7 +79,7 @@ class Chat extends React.Component {
 
         let messages = <div></div>;
 
-        if(this.state.messages !== null) {
+        if (this.state.messages !== null) {
             messages = <div>
                 {this.state.messages.map(m =>
                     <Message key={"msg_key_" + m.id} author={m.author} message={m.message}/>
@@ -93,17 +93,18 @@ class Chat extends React.Component {
                 <p>My username: {this.props.userId}</p>
                 <div>
                     <form onSubmit={this.sendMessageFromReturn}>
-                    <input
-                        type="text"
-                        placeholder="Message"
-                        className="input-chat-message"
-                        onChange={this.onTextChange}
-                        value={this.state.message}/>
+                        <input
+                            type="text"
+                            placeholder="Message"
+                            className="input-chat-message"
+                            onChange={this.onTextChange}
+                            value={this.state.message}/>
 
                         <br/>
-                    <div className="button button-primary"
-                         onClick={this.sendMessage}
-                    disabled={this.state.message.length == 0}>Send</div>
+                        <div className="button button-primary"
+                             onClick={this.sendMessage}
+                             disabled={this.state.message.length == 0}>Send
+                        </div>
                     </form>
 
                 </div>

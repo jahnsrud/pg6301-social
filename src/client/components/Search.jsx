@@ -3,21 +3,6 @@ import SearchResult from "./SearchResult";
 
 class Search extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            users: [],
-            searchTerm: "",
-            error: ""
-        }
-
-        this.searchUsers = this.searchUsers.bind(this);
-        this.clearInput = this.clearInput.bind(this);
-
-    }
-
-
     searchUsers = ((event) => {
         console.log(event);
 
@@ -26,7 +11,7 @@ class Search extends React.Component {
         if (event.target.value.length > 0) {
             this.search(event.target.value);
 
-        }  else {
+        } else {
             this.setState({
                 searchTerm: event.target.value,
                 users: []
@@ -35,6 +20,20 @@ class Search extends React.Component {
 
 
     });
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            users: [],
+            searchTerm: "",
+            error: ""
+        };
+
+        this.searchUsers = this.searchUsers.bind(this);
+        this.clearInput = this.clearInput.bind(this);
+
+    }
 
     async search(search) {
 
@@ -69,20 +68,20 @@ class Search extends React.Component {
         return (
             <div className="search-container">
                 <form onSubmit={this.searchUsers}>
-                <input
-                    type="text"
-                    placeholder="🔍 Search..."
-                    className="input-search"
-                    onChange={this.searchUsers}
-                />
+                    <input
+                        type="text"
+                        placeholder="🔍 Search..."
+                        className="input-search"
+                        onChange={this.searchUsers}
+                    />
                 </form>
                 <div className="search-results">
-                {
-                    this.state.users.map((option) => (
-                        <SearchResult user={option} clearInput={this.clearInput}/>
-                    ))
+                    {
+                        this.state.users.map((option) => (
+                            <SearchResult user={option} clearInput={this.clearInput}/>
+                        ))
 
-                }
+                    }
                 </div>
 
             </div>

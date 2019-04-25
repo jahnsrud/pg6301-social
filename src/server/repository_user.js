@@ -20,7 +20,7 @@ function verifyUser(id, password) {
 
     const user = getUser(id.toLowerCase());
 
-    if(user === undefined){
+    if (user === undefined) {
         return false;
     }
 
@@ -33,11 +33,11 @@ function verifyUser(id, password) {
     return user.password === password;
 }
 
-function createUser(id, password, fullName, birthday, location){
+function createUser(id, password, fullName, birthday, location) {
 
     id = id.toLowerCase();
 
-    if(getUser(id) !== undefined ){
+    if (getUser(id) !== undefined) {
         return false;
     }
 

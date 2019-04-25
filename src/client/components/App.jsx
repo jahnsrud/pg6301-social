@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 
 class App extends React.Component {
 
+    fk;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -14,14 +16,14 @@ class App extends React.Component {
         this.fetchPostsWithWebSockets = this.fetchPostsWithWebSockets.bind(this);
     }
 
+    // Fetch inspired by
+    // https://github.com/arcuri82/web_development_and_api_design/blob/master/les07/server_client_separated/frontend/src/client/home.jsx
+
     componentDidMount() {
 
         this.fetchPostsWithWebSockets();
 
     }
-
-    // Fetch inspired by
-    // https://github.com/arcuri82/web_development_and_api_design/blob/master/les07/server_client_separated/frontend/src/client/home.jsx
 
     async fetchPostsWithWebSockets() {
         const POSTS_URL = "ws://" + window.location.host + "/";
@@ -38,18 +40,16 @@ class App extends React.Component {
                 posts: posts
 
             });
-                /* prev=> {
-                    if (prev.messages === null) {
-                        return {messages: msgList}
-                    } else {
-                        return {messages: [...prev.messages, ...msgList]};
-                    }
+            /* prev=> {
+                if (prev.messages === null) {
+                    return {messages: msgList}
+                } else {
+                    return {messages: [...prev.messages, ...msgList]};
                 }
-            )*/
+            }
+        )*/
         });
     }
-
-
 
     render() {
 
@@ -64,7 +64,7 @@ class App extends React.Component {
                         <Link to={"/login"}>
                             <div className="button button-primary">Login</div>
                         </Link>
-                        <br />
+                        <br/>
                         <Link to={"/register"}>
                             <div className="button button-primary">Register</div>
                         </Link>
@@ -90,7 +90,6 @@ class App extends React.Component {
             </div>
         );
     }
-fk
 
 
 }
