@@ -267,6 +267,12 @@ button:disabled {
   margin-right: 12px;
   text-decoration: none; }
 
+.header-profile {
+  background: #464646;
+  padding: 8px;
+  border-radius: 8px;
+  color: white; }
+
 .login-section {
   padding: 16px;
   border: 1px dashed black; }
@@ -321,6 +327,15 @@ button:disabled {
   border-radius: 8px;
   border: 0;
   background-color: #eeeeee; }
+
+.input-link {
+  border: none;
+  border-bottom: 1px solid #D7D7D7;
+  border-top: 1px solid #D7D7D7;
+  width: 100%;
+  font-size: 10pt;
+  padding: 8px 0 8px;
+  margin-bottom: 16px; }
 
 .input-chat-message {
   display: block;

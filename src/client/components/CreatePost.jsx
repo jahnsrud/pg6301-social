@@ -8,8 +8,7 @@ class CreatePost extends React.Component {
         this.state = {
             content: "",
             author: "",
-            link: "",
-            shouldAttach: false
+            link: ""
         };
 
         this.submitPost = this.submitPost.bind(this);
@@ -21,13 +20,16 @@ class CreatePost extends React.Component {
         this.setState({ content: event.target.value });
     };
 
+    didTypeLink= (event) => {
+        this.setState({ link: event.target.value });
+    };
+
     submitPost = async (content, author, link) => {
         const url = "/api/posts";
 
-        // TODO: Fix
+        author = this.props.userId;
         content = this.state.content;
-        author = "COMING_SOON";
-        link = "";
+        link = this.state.link;
 
         const payload = {content, author, link};
 
@@ -44,14 +46,15 @@ class CreatePost extends React.Component {
         } catch (err) {
             return false;
         }
+
+        this.setState({
+            content: "",
+            author: "",
+            link: ""
+        })
+
         return response.status === 201;
     };
-
-    attachPost = (event) => {
-        this.setState({
-            shouldAttach: !this.state.shouldAttach
-        });
-    }
 
     render() {
         return (
@@ -64,13 +67,12 @@ class CreatePost extends React.Component {
                    value={this.state.content}
                    onChange={this.didTypeMessage}/>
 
-                   <div onClick={this.attachPost} className="button-add-attachment">📎 Add Link</div>
-
-                   {
-                       this.state.shouldAttach && <input
+                   <input
                        type="text"
-                       placeholder="https://"/>
-                   }
+                       placeholder="🔗 Add Link..."
+                       className="input-link"
+                       value={this.state.link}
+                       onChange={this.didTypeLink}/>
 
                    <div onClick={this.submitPost} className="button button-primary">Share</div>
                </div>

@@ -42,11 +42,12 @@ function createUser(id, password, fullName, birthday, location){
     }
 
     const user = {
-        id: id,
+        id: id.toLowerCase(),
         password: password,
         fullName: fullName,
         birthday: birthday,
         location: location,
+        dateCreated: Date(),
         friends: []
 
     };

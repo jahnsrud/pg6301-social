@@ -69,7 +69,7 @@ class App extends React.Component {
                     (this.props.userId !== null) &&
 
                     <div>
-                        <CreatePost/>
+                        <CreatePost author={this.props.userId}/>
                         {
                             this.state.posts !== null && <Timeline posts={this.state.posts}/>
                         }

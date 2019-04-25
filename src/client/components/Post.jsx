@@ -15,11 +15,15 @@ class Post extends React.Component {
                     <p className="post-author">Author: {this.props.author}</p>
                 </Link>
 
-                <p className="post-date">Date: {this.props.date}</p>
+                <p className="post-date">Date: {this.props.dateCreated}</p>
                 <p className="post-content">{this.props.content}</p>
 
                 {
-                    this.props.link.length > 0 && <p className="post-image">{this.props.link}</p>
+                    this.props.link.length > 0 && (
+                        <a href={this.props.link} target="_blank">
+                            <p className="post-attachment">🔗 {this.props.link}</p>
+                        </a>
+                    )
                 }
 
 

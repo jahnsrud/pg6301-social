@@ -16,7 +16,7 @@ function createPost(content, author, link) {
 
     const post = {
         id: id,
-        date: new Date(),
+        dateCreated: new Date(),
         content: content,
         author: author,
         link: link
@@ -37,7 +37,7 @@ function getPost(id) {
 }
 
 function getAllPosts() {
-    return Array.from(posts.values())
+    return Array.from(posts.values()).reverse();
 }
 
 function updatePost(post) {
