@@ -53,7 +53,10 @@ class AppRouter extends React.Component {
 
                 <Switch>
                     <Route path="/" component={App} exact={true}/>
-                    <Route path="/profile" component={Profile} />
+                    <Route path="/profile" component={() =>
+                        <Profile userId={this.state.userId}
+                                 updateLoggedInUserId={this.updateLoggedInUserId}/>}
+                           />
                     <Route path="/login" component={() =>
                         <Login userId={this.state.userId}
                                updateLoggedInUserId={this.updateLoggedInUserId}/>}

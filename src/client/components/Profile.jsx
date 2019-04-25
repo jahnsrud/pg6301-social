@@ -1,14 +1,27 @@
 import React from "react";
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
+import { Redirect } from "react-router-dom";
 
 class Profile extends React.Component {
 
     constructor(props) {
         super(props);
 
-        const id = new URLSearchParams(window.location.search).get("id");
-        console.log(id);
+        let id = new URLSearchParams(window.location.search).get("id");
+        if (id === null) {
+            id = this.props.userId;
+            console.log("Id from props: " + id);
+
+            if (id == null) {
+                <Redirect to="/" push />
+            }
+
+        } else {
+            // console.log("Null: " + id);
+        }
+
+        console.log("Profile: Looking for user: " + id)
 
         this.state = {
             id: id,
@@ -24,6 +37,11 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
+
+        if (this.state.id === this.props.id) {
+            console.log("My User");
+        }
+
         this.fetchUser(this.state.id);
 
     }
@@ -48,7 +66,7 @@ class Profile extends React.Component {
             name: body.fullName,
             birthday: body.birthday,
             location: body.location,
-            error: null
+            error: ""
         });
 
         console.log(body);
@@ -64,6 +82,7 @@ class Profile extends React.Component {
                 {
                     (this.state.error === null) &&  <p>Profile not found</p>
                 }
+
 
                 <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
                 <h1>{this.state.name}</h1>
