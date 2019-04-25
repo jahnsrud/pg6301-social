@@ -31,7 +31,7 @@ app.get('/api/welcome', (req, res) => {
 });
 
 app.get('/profile-image-file', function (req, res) {
-    res.sendFile(path.resolve(__dirname, 'files', 'resources', 'profile-picture.png'));
+    res.sendFile(path.resolve(__dirname, 'public', 'img', 'profile-picture.png'));
 
 });
 

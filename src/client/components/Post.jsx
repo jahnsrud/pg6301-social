@@ -19,7 +19,7 @@ class Post extends React.Component {
                 <p className="post-content">{this.props.content}</p>
 
                 {
-                    this.props.link.length > 0 && (
+                    (this.props.link !== null && this.props.link.length) > 0 && (
                         <a href={this.props.link} target="_blank">
                             <p className="post-attachment">🔗 {this.props.link}</p>
                         </a>

@@ -5,8 +5,6 @@ import {Link} from "react-router-dom";
 
 class App extends React.Component {
 
-    fk;
-
     constructor(props) {
         super(props);
         this.state = {
