@@ -8,12 +8,12 @@ class Profile extends React.Component {
         super(props);
 
         this.state = {
-            name: "NAME_TEST",
-            birthday: "BIRTHDAY_TEST",
-            location: "LOCATION_TEST",
+            name: "",
+            birthday: "",
+            location: "",
             friends: ["Someone", "Something", "Test"]
         };
-        
+
         this.fetchUser = this.fetchUser.bind(this);
 
     }
@@ -36,6 +36,12 @@ class Profile extends React.Component {
             throw Error(body.message);
         }
 
+        this.setState({
+            name: body.fullName,
+            birthday: body.birthday,
+            location: body.location
+        });
+
         console.log(body);
 
     }
@@ -43,12 +49,11 @@ class Profile extends React.Component {
     render() {
         return (
             <div>
-                <h1>Profile</h1>
                 <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
-                <p>{this.state.name}</p>
+                <h1>{this.state.name}</h1>
                 <p>{this.state.birthday}</p>
                 <p>{this.state.location}</p>
-                <div>
+                <div className="friends-section">
                     <h3>Friends</h3>
                     <p>Add/Remove Friend</p>
                     <ul>
