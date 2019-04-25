@@ -2,7 +2,7 @@ const users = new Map();
 
 function createAdmin() {
     createUser("markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
-    createUser("test", "1234", "Test User", "00000000", "Oslo");
+    createUser("safari", "1234", "Safari", "00000000", "Oslo");
     createUser("chrome", "1234", "Chrome", "00000000", "Oslo");
     createUser("vivaldi", "1234", "Vivaldi", "00000000", "Oslo");
 }
@@ -72,4 +72,8 @@ function findUsers(search) {
     return searchResults;
 }
 
-module.exports = {getUser, verifyUser, createUser, createAdmin, findUsers};
+function addFriendForUser(username) {
+    // TODO
+}
+
+module.exports = {getUser, verifyUser, createUser, createAdmin, findUsers, addFriendForUser};

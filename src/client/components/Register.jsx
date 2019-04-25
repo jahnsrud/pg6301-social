@@ -129,8 +129,9 @@ class Register extends React.Component {
 
             <div>
                 <div className="login-section">
+                    <h2>Register</h2>
                     <div>
-                        <p>Username</p>
+                        <p className="input-heading">Username</p>
                         <input
                             type="text"
                             className="input-user-details"
@@ -139,7 +140,7 @@ class Register extends React.Component {
                             onChange={this.onUserIdChange}
                         />
                     </div>
-                    <p>About</p>
+                    <p className="input-heading">Name</p>
                     <input
                         type="text"
                         className="input-user-details"
@@ -147,11 +148,11 @@ class Register extends React.Component {
                         value={this.state.fullName}
                         onChange={this.onFullNameChange}
                     />
-
+                    <p className="input-heading">Birthday</p>
                     <DayPickerInput
                         className="input-user-details"
                          />
-
+                    <p className="input-heading">Location</p>
                     <input
                         type="text"
                         className="input-user-details"
@@ -159,8 +160,9 @@ class Register extends React.Component {
                         value={this.state.location}
                         onChange={this.onLocationChange}
                     />
+                    <br />
                     <div>
-                        <p>Password</p>
+                        <p className="input-heading">Password</p>
                         <input
                             type="password"
                             className="input-user-details"
@@ -170,7 +172,7 @@ class Register extends React.Component {
                         />
                     </div>
                     <div>
-                        <p>Confirm Password</p>
+                        <p className="input-heading">Confirm Password</p>
                         <input
                             type="password"
                             className="input-user-details"
@@ -185,15 +187,18 @@ class Register extends React.Component {
 
                     </div>
                     {error}
+                    <br />
                     <div className="button button-primary" onClick={this.doSignUp}>
                         Sign Up
                     </div>
                 </div>
 
-                <p>Already registered?</p>
-                <Link to={"/login"}>
-                    <div className="button">Login</div>
-                </Link>
+                <div className="change-login-type-box">
+                    <p>Already registered?</p>
+                    <Link to={"/login"}>
+                        <div className="button">Login</div>
+                    </Link>
+                </div>
 
             </div>
         );

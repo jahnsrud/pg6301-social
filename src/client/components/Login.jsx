@@ -98,8 +98,9 @@ class Login extends React.Component {
         return (
             <div>
                 <div className="login-section">
+                    <h2>Welcome back!</h2>
                     <div>
-                        <p>Username</p>
+                        <p className="input-heading">Username</p>
                     <form onSubmit={this.doLoginFromEnter}>
                         <input
                         type="text"
@@ -112,7 +113,7 @@ class Login extends React.Component {
 
                     </div>
                     <div className="passwordSection">
-                        <p>Password</p>
+                        <p className="input-heading">Password</p>
                         <form onSubmit={this.doLoginFromEnter}>
                         <input
                             type="password"
@@ -124,16 +125,19 @@ class Login extends React.Component {
                         </form>
 
                     </div>
+                    <br />
                 <div onClick={this.doLogIn} className="button button-primary">Login</div>
 
                 </div>
 
                 {error}
 
-                <p>Not a member yet?</p>
-                <Link to={"/register"}>
-                    <div className="button">Register</div>
-                </Link>
+                <div className="change-login-type-box">
+                 <p>Not a member yet?</p>
+                 <Link to={"/register"}>
+                     <div className="button">Register</div>
+                 </Link>
+                 </div>
             </div>
         )
 

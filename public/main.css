@@ -274,13 +274,24 @@ button:disabled {
   color: white; }
 
 .login-section {
-  padding: 16px;
-  border: 1px dashed black; }
+  padding: 32px;
+  box-shadow: 1px 2px 9px gainsboro; }
 
 .info-message {
   border: 1px solid black;
   padding: 16px;
   transition: 0.2s all; }
+
+.input-heading {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 9pt;
+  color: #5d5d5d; }
+
+.change-login-type-box {
+  border-top: 1px solid lightgray;
+  margin-top: 32px; }
 
 .post {
   padding: 16px;

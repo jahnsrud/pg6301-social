@@ -60,7 +60,7 @@ class App extends React.Component {
 
                     <div>
                         <h2>Welcome to social.app</h2>
-                        <p>Get started by signing in or register.</p>
+                        <p>Get started by signing in 😊</p>
                         <Link to={"/login"}>
                             <div className="button button-primary">Login</div>
                         </Link>

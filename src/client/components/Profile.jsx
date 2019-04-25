@@ -29,6 +29,7 @@ class Profile extends React.Component {
             birthday: "",
             location: "",
             friends: ["Someone", "Something", "Test"],
+            posts: [],
             error: ""
         };
 
@@ -117,14 +118,22 @@ s
 
                     </div>
 
-                    <h2>TIMELINE_HERE</h2>
+                    <h2>Posts ({this.state.posts.length})</h2>
 
                     <div>
-                        <p>If signed in:</p>
-                        <CreatePost/>
+                        {
+                            (this.state.id === this.props.userId) && <CreatePost/>
+                        }
+
                     </div>
 
-                    <Timeline posts={[]}/>
+                    {
+                        this.state.posts.length > 0 && <Timeline posts={this.state.posts}/>
+                    }
+                    {
+                        this.state.posts.length === 0 && <p>No posts...</p>
+                    }
+
 
                 </div>
             }
