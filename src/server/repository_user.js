@@ -1,5 +1,7 @@
 const users = new Map();
 
+let idCount = 0;
+
 function createAdmin() {
     createUser("Markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
     createUser("Test", "1234", "Test User", "00000000", "Oslo");
@@ -49,6 +51,20 @@ function createUser(id, password, fullName, birthday, location){
     return true;
 }
 
+function findUsers(search) {
 
+    console.log("Searching for: " + search);
 
-module.exports = {getUser, verifyUser, createUser, createAdmin};
+    let searchResults = [];
+
+    for (let user of users.values()) {
+        console.log(user);
+        if (user.id === search) {
+            searchResults.push(user);
+        }
+    }
+
+    return searchResults;
+}
+
+module.exports = {getUser, verifyUser, createUser, createAdmin, findUsers};

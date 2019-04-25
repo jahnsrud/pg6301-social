@@ -40,6 +40,19 @@ app.get("/api/users/:id", (req, res) => {
 
 });
 
+app.get("/api/users/search/:id", (req, res) => {
+    const users = userRepo.findUsers(req.params["id"])
+
+    if (users === undefined || users === null) {
+        res.status(404);
+        res.send()
+    } else {
+
+        res.json(users);
+    }
+
+});
+
 
 
 /*
