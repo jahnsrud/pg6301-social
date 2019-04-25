@@ -2,7 +2,7 @@
   background: white;
   box-shadow: 0 1px 3px #e2e2e2;
   margin-bottom: 8px;
-  padding: 32px;
+  padding: 16px 120px 16px;
 }
 
 .header-logo {
@@ -14,7 +14,7 @@
 
 .header-logo h1 {
   color: $primary-color;
-  margin: 0px 0px 12px;
+  margin-right: 10px;
   text-transform: lowercase;
   font-weight: 200;
   display: inline;
@@ -29,9 +29,10 @@
   cursor: pointer;
   display: inline;
   color: #3a3a3a;
-  margin-right: 12px;
+  margin-right: 16px;
   text-decoration: none;
-
+  font-size: 11pt;
+  letter-spacing: 1.4px;
 }
 
 .header-profile {

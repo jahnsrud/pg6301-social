@@ -1,11 +1,10 @@
 import React from "react";
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
+import ProfileDetails from "./ProfileDetails";
 import {Link, Redirect} from "react-router-dom";
 
 class Profile extends React.Component {
-
-    s;
 
     constructor(props) {
         super(props);
@@ -92,21 +91,21 @@ class Profile extends React.Component {
                 (this.state.error === null) && <p>Profile not found</p>
             }
 
-            <img src="profile-image-file"/>
+            <img alt="Profile Image" className="profile-image" src="profile-image-file"/>
             <h1>{this.state.name}</h1>
             <p>Username: {this.state.id}</p>
 
             {
                 (this.props.userId !== null) && <div>
 
-                    <p>{this.state.birthday}</p>
-                    <p>{this.state.location}</p>
+                    <ProfileDetails birthday={this.state.birthday} location={this.state.location}/>
+
                     <div className="friends-section">
                         <h3>Friends ({this.state.friends.length})</h3>
                         <ul>
                             {
                                 this.state.friends.map((friend, i) => {
-                                    return (<p>{friend}</p>)
+                                    return (<li>{friend}</li>)
 
                                 })
 

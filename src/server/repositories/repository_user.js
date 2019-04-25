@@ -20,16 +20,12 @@ function verifyUser(id, password) {
 
     const user = getUser(id.toLowerCase());
 
-    if (user === undefined) {
+    if (user === undefined || user === null) {
         return false;
     }
 
-    /*
-        WARNING: remember that those passwords should be hashed,
-        with salt and pepper...
-        But we are not dealing with backend details
-        in this course, like secure storage of passwords
-     */
+    // Not an exactly safe solution
+
     return user.password === password;
 }
 

@@ -181,6 +181,9 @@ body {
   padding: 0;
   margin: 0; }
 
+#root {
+  background: #f7f8f8db; }
+
 .content-wrapper {
   margin: 32px 120px 32px; }
 
@@ -242,7 +245,7 @@ button:disabled {
   background: white;
   box-shadow: 0 1px 3px #e2e2e2;
   margin-bottom: 8px;
-  padding: 32px; }
+  padding: 16px 120px 16px; }
 
 .header-logo {
   color: black;
@@ -252,7 +255,7 @@ button:disabled {
 
 .header-logo h1 {
   color: #2326ce;
-  margin: 0px 0px 12px;
+  margin-right: 10px;
   text-transform: lowercase;
   font-weight: 200;
   display: inline; }
@@ -264,8 +267,10 @@ button:disabled {
   cursor: pointer;
   display: inline;
   color: #3a3a3a;
-  margin-right: 12px;
-  text-decoration: none; }
+  margin-right: 16px;
+  text-decoration: none;
+  font-size: 11pt;
+  letter-spacing: 1.4px; }
 
 .header-profile {
   background: #464646;
@@ -294,6 +299,7 @@ button:disabled {
   margin-top: 32px; }
 
 .post {
+  background: white;
   padding: 16px;
   border: 1px solid #cccccc;
   margin-bottom: 16px;
@@ -322,7 +328,9 @@ button:disabled {
   -moz-border-radius: 8px;
   border-radius: 8px;
   border: 0;
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+  width: 100%;
+  font-size: 1.6rem; }
 
 .input-status-message {
   padding: 8px;
@@ -357,6 +365,7 @@ button:disabled {
   width: 100%; }
 
 .create-status-container {
+  background: white;
   padding: 16px;
   border: 1px solid gray;
   border-radius: 8px;
@@ -373,16 +382,21 @@ button:disabled {
   color: black; }
 
 .search-container {
-  display: inline-block; }
+  display: inline-block;
+  float: right;
+  width: 200px; }
 
 .search-results {
   position: absolute;
   background: white;
-  width: 300px;
+  width: 240px;
   border-radius: 8px;
   box-shadow: 0px 1px 4px #c7c7c7; }
 
 .friends-section {
   padding: 16px;
   border: 1px solid black; }
+
+.profile-image {
+  width: 120px; }
 
