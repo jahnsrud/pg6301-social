@@ -23,6 +23,7 @@ app.use(session({
 }));
 
 userRepo.createAdmin();
+postRepo.populatePosts();
 
 // Just a "fun" hello world message
 app.get('/api/welcome', (req, res) => {
@@ -61,7 +62,6 @@ app.get("/api/users/search/:id", (req, res) => {
 Posts
  */
 
-postRepo.populatePosts();
 
 app.get('/api/all-posts', (req, res) => {
     res.json(postRepo.getAllPosts());

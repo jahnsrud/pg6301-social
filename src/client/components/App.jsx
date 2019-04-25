@@ -7,8 +7,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
-            welcomeMessage: ""
+            posts: []
         }
 
         this.fetchAllPosts = this.fetchAllPosts.bind(this);
@@ -17,9 +16,7 @@ class App extends React.Component {
     componentDidMount() {
 
         this.fetchAllPosts();
-        this.fetchWelcomeMessage()
-            .then(res => this.setState({welcomeMessage: res.express}))
-            .catch(err => console.log(err));
+
     }
 
     // Fetch inspired by
@@ -55,23 +52,9 @@ class App extends React.Component {
         }
     }
 
-    fetchWelcomeMessage = async () => {
-        const response = await fetch("/api/welcome");
-        const body = await response.json();
-
-        if (response.status !== 200) {
-            throw Error(body.message);
-        }
-
-
-        return body;
-
-    };
-
     render() {
         return (
             <div>
-
                 {
                     (this.props.userId === null) && <p>Not signed in!</p>
                 }
@@ -79,7 +62,6 @@ class App extends React.Component {
                 {
                     this.state.posts !== null && <Timeline posts={this.state.posts}/>
                 }
-                <p>Server says: {this.state.welcomeMessage}</p>
 
             </div>
         );
