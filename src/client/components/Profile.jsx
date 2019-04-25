@@ -30,7 +30,7 @@ class Profile extends React.Component {
             name: "",
             birthday: "",
             location: "",
-            friends: ["Someone", "Something", "Test"],
+            friends: ["Person 1", "Person 2", "Person 3"],
             posts: [],
             error: ""
         };
@@ -94,21 +94,23 @@ class Profile extends React.Component {
 
             <img alt="Profile Image" className="profile-image" src="profile-image-file"/>
             <h1>{this.state.name}</h1>
-            <p>Username: {this.state.id}</p>
+            <p>@{this.state.id}</p>
 
             {
                 (this.props.userId !== null) && <div>
 
                     <ProfileDetails birthday={this.state.birthday} location={this.state.location}/>
 
+                    <button className="button button-primary">+ Friend</button>
+                    <button className="button">- Friend</button>
+                    <br/>
+                    <br/>
+                    <br/>
+
                     <div className="friends-section">
 
                         <h3>Friends ({this.state.friends.length})</h3>
                         <Friends friends={this.state.friends}/>
-
-                        <h3>Status</h3>
-                        <button className="button button-primary">+ Friend</button>
-                        <button className="button">- Friend</button>
 
                     </div>
 
@@ -125,7 +127,7 @@ class Profile extends React.Component {
                         this.state.posts.length > 0 && <Timeline posts={this.state.posts}/>
                     }
                     {
-                        this.state.posts.length === 0 && <p>No posts...</p>
+                        this.state.posts.length === 0 && <p>No posts added</p>
                     }
 
 

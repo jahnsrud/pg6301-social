@@ -5,11 +5,6 @@ const SearchResult = (props) => {
 
     console.log("SEARCH RESULT: " + props.user);
 
-
-    function openLink() {
-
-    }
-
     return (
         <Link to={"/profile?id=" + props.user.id}>
 

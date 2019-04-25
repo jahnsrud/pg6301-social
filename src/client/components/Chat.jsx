@@ -6,10 +6,6 @@ class Chat extends React.Component {
     constructor(props) {
         super(props);
 
-        if (this.props.userId !== null) {
-            <Redirect to="/" push/>
-        }
-
         this.state = {
             message: "",
             messages: null,
@@ -90,7 +86,7 @@ class Chat extends React.Component {
         return (
             <div>
                 <h1>Chat</h1>
-                <p>My username: {this.props.userId}</p>
+                <p>@{this.props.userId}</p>
                 <div>
                     <form onSubmit={this.sendMessageFromReturn}>
                         <input

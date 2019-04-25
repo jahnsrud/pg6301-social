@@ -1,18 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Friends = (props) => {
 
     return (
         <div>
-            <ul>
-                {
-                    props.friends.map((friend, i) => {
-                        return (<li key={i}>{friend}</li>)
+            {
+                props.friends.map((friend, i) => {
+                    return (
+                        <Link to={"/profile?id=" + friend}>
+                        <p key={i}>
+                            👤 {friend}
+                        </p>
+                        </Link>
+                            )
 
-                    })
+
+                })
 
                 }
-            </ul>
         </div>
     )
 };

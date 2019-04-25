@@ -394,9 +394,21 @@ button:disabled {
   box-shadow: 0px 1px 4px #c7c7c7; }
 
 .friends-section {
+  background: white;
   padding: 16px;
-  border: 1px solid black; }
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px #ababab;
+  margin-bottom: 32px; }
 
 .profile-image {
   width: 120px; }
+
+.friends-section p {
+  border-bottom: 1px solid #d7d7d7;
+  padding-bottom: 16px; }
+
+.friends-section a {
+  text-decoration: none;
+  color: black; }
 
