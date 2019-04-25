@@ -3,6 +3,35 @@ const router = express.Router();
 const passport = require('passport/lib');
 const UserRepo = require('../repositories/repository_user');
 
+router.get("/users/:id", (req, res) => {
+
+    console.log("Getting user: " + req.params["id"])
+    const user = UserRepo.getUser(req.params["id"]);
+
+    if (user === undefined || user === null) {
+        res.status(404);
+        res.send()
+    } else {
+
+        res.json(user);
+    }
+
+});
+
+router.get("/users/search/:id", (req, res) => {
+    const users = UserRepo.findUsers(req.params["id"]);
+
+    if (users === undefined || users === null) {
+        res.status(404);
+        res.send()
+    } else {
+
+        res.json(users);
+    }
+
+});
+
+
 
 /*
     The login will apply the Passport filter to check if provided

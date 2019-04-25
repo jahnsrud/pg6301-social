@@ -92,7 +92,7 @@ class Profile extends React.Component {
                 (this.state.error === null) && <p>Profile not found</p>
             }
 
-            <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
+            <img src="profile-image-file"/>
             <h1>{this.state.name}</h1>
             <p>Username: {this.state.id}</p>
 

@@ -30,32 +30,10 @@ app.get('/api/welcome', (req, res) => {
     res.send({express: 'Welcome 😎 This is your server speaking'});
 });
 
-app.get("/api/users/:id", (req, res) => {
-    const user = userRepo.getUser(req.params["id"]);
-
-    if (user === undefined || user === null) {
-        res.status(404);
-        res.send()
-    } else {
-
-        res.json(user);
-    }
+app.get('/profile-image-file', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'files', 'resources', 'profile-picture.png'));
 
 });
-
-app.get("/api/users/search/:id", (req, res) => {
-    const users = userRepo.findUsers(req.params["id"]);
-
-    if (users === undefined || users === null) {
-        res.status(404);
-        res.send()
-    } else {
-
-        res.json(users);
-    }
-
-});
-
 
 /*
 Posts
@@ -98,23 +76,13 @@ app.ws('/', (ws, req) => {
     });
 });
 
-app.post('/api/posts', (req, res) => {
-    const post = req.body;
-    const id = postRepo.createPost(post.content, post.author, post.link);
 
-    console.log("Received: " + id);
-
-    res.status(201);
-    res.header("location", "/api/posts/" + id);
-    res.send();
-
-});
 
 /*
 WebSockets and Chat
  */
 
-let counter = 0;
+let messageId = 0;
 const messages = [];
 
 function messageIsValid(input) {
@@ -144,7 +112,7 @@ app.ws("/chat_api", function (ws, req) {
          */
 
         const dto = JSON.parse(fromClient);
-        const id = counter++;
+        const id = messageId++;
         const msg = {id: id, author: dto.author, message: dto.message};
 
         if (messageIsValid(dto.message)) {
@@ -154,12 +122,6 @@ app.ws("/chat_api", function (ws, req) {
             //do a broadcast to all existing clients
             ews.getWss().clients.forEach((client) => {
                 if (client.readyState === WebSocket.OPEN) {
-                    /*
-                        even if a single msg, we will have it in a list of size 1.
-                        This does simplify the code on the client, as it does not
-                        need to distinguish between the download of all msgs on connection
-                        and these following broadcasts, i.e., they ll have the same structure.
-                     */
                     client.send(JSON.stringify([msg]));
                 }
             });
@@ -170,6 +132,9 @@ app.ws("/chat_api", function (ws, req) {
 
     });
 });
+
+// Passport code from:
+// https://github.com/arcuri82/web_development_and_api_design/blob/d75fefb867d73ab8c5ecbde2629dc496d1f44644/exercise-solutions/quiz-game/part-08/src/server/app.js
 
 passport.use(new LocalStrategy(
     /*
@@ -214,13 +179,11 @@ app.use(passport.session());
 
 //--- Routes -----------
 app.use('/api', userRoutes);
+// app.use('/api/posts', postsRoutes);
 
-// TODO: Fix:
-// app.use('/posts', postsRoutes);
 
 //handling 404
 app.use((req, res, next) => {
-    // res.send("Page not found", 404)
     res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'index.html'));
 });
 
