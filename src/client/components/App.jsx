@@ -32,7 +32,7 @@ class App extends React.Component {
         this.socket.onmessage = (event => {
 
             const posts = JSON.parse(event.data);
-            console.log("Parsed Posts: " + posts);
+            // console.log("Parsed Posts: " + posts);
 
             this.setState({
                 posts: posts

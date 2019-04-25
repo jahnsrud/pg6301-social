@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Post from '../../../src/client/components/Post';
+import Friends from '../../../src/client/components/Friends';
 
-it('Post renders without crashing', () => {
+it('Friends renders without crashing', () => {
     const div = document.createElement('root');
-    ReactDOM.render(<Post/>, div);
-
-    // logic...
-
+    ReactDOM.render(<Friends/>, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 

@@ -2,6 +2,7 @@ import React from "react";
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
 import ProfileDetails from "./ProfileDetails";
+import Friends from "./Friends";
 import {Link, Redirect} from "react-router-dom";
 
 class Profile extends React.Component {
@@ -101,16 +102,9 @@ class Profile extends React.Component {
                     <ProfileDetails birthday={this.state.birthday} location={this.state.location}/>
 
                     <div className="friends-section">
+
                         <h3>Friends ({this.state.friends.length})</h3>
-                        <ul>
-                            {
-                                this.state.friends.map((friend, i) => {
-                                    return (<li>{friend}</li>)
-
-                                })
-
-                            }
-                        </ul>
+                        <Friends friends={this.state.friends}/>
 
                         <h3>Status</h3>
                         <button className="button button-primary">+ Friend</button>

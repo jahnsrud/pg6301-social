@@ -18,6 +18,10 @@ router.get("/users/:id", (req, res) => {
 
 });
 
+router.get("/users/add-friend/:id", (req, res) => {
+
+})
+
 router.get("/users/search/:id", (req, res) => {
     const users = UserRepo.findUsers(req.params["id"]);
 
