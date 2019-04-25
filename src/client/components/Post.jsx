@@ -12,7 +12,7 @@ class Post extends React.Component {
     render() {
         return (
             <div className="post">
-                <Link to={"/profile"}>
+                <Link to={"/profile?id="+this.props.author}>
                     <p className="post-author">Author: {this.props.author}</p>
                 </Link>
 

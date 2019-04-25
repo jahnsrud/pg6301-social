@@ -2,6 +2,7 @@ const users = new Map();
 
 function createAdmin() {
     createUser("Markus", "1234", "Markus Jahnsrud", "05121995", "Oslo");
+    createUser("Test", "1234", "Test User", "00000000", "Oslo");
 }
 
 function getUser(id){

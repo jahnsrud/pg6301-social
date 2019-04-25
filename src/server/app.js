@@ -27,8 +27,6 @@ app.get('/api/welcome', (req, res) => {
     res.send({ express: 'Welcome 😎 This is your server speaking' });
 });
 
-
-
 app.get("/api/users/:id", (req, res) => {
     const user = userRepo.getUser(req.params["id"]);
 

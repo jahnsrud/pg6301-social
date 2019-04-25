@@ -53,6 +53,7 @@ class AppRouter extends React.Component {
 
                 <Switch>
                     <Route path="/" component={App} exact={true}/>
+                    <Route path="/profile" component={Profile} />
                     <Route path="/login" component={() =>
                         <Login userId={this.state.userId}
                                updateLoggedInUserId={this.updateLoggedInUserId}/>}
@@ -64,8 +65,6 @@ class AppRouter extends React.Component {
                     <Route path="/chat" component={() =>
                         <Chat userId={this.state.userId}/>}
                            exact={true}/>
-
-                    <Route path="/profile" component={Profile} exact={true}/>
                     <Route component={ErrorPage}/>
                 </Switch>
                 </div>

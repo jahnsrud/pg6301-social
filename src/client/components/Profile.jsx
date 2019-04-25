@@ -7,11 +7,16 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
 
+        const id = new URLSearchParams(window.location.search).get("id");
+        console.log(id);
+
         this.state = {
+            id: id,
             name: "",
             birthday: "",
             location: "",
-            friends: ["Someone", "Something", "Test"]
+            friends: ["Someone", "Something", "Test"],
+            error: ""
         };
 
         this.fetchUser = this.fetchUser.bind(this);
@@ -19,7 +24,7 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchUser("Markus");
+        this.fetchUser(this.state.id);
 
     }
 
@@ -33,13 +38,17 @@ class Profile extends React.Component {
         const body = await response.json();
 
         if (response.status !== 200) {
+            this.setState({
+                error: "Something went wrong"
+            });
             throw Error(body.message);
         }
 
         this.setState({
             name: body.fullName,
             birthday: body.birthday,
-            location: body.location
+            location: body.location,
+            error: null
         });
 
         console.log(body);
@@ -47,8 +56,15 @@ class Profile extends React.Component {
     }
 
     render() {
+
         return (
+
             <div>
+
+                {
+                    (this.state.error === null) &&  <p>Profile not found</p>
+                }
+
                 <img src="http://sg-fs.com/wp-content/uploads/2017/08/user-placeholder.png"/>
                 <h1>{this.state.name}</h1>
                 <p>{this.state.birthday}</p>
@@ -58,11 +74,13 @@ class Profile extends React.Component {
                     <p>Add/Remove Friend</p>
                     <ul>
                         <li>{this.state.friends}</li>
-                        <li>...</li>
+                        <li>:MORE:</li>
                     </ul>
                     <p>(Hidden on your own profile)</p>
 
                 </div>
+
+                <h2>TIMELINE_HERE</h2>
 
                 <div>
                     <p>If signed in:</p>
