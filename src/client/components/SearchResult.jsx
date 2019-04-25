@@ -3,14 +3,18 @@ import {Link} from "react-router-dom";
 
 const SearchResult = (props) => {
 
+    console.log("SEARCH RESULT: " + props.user);
+
+
     function openLink() {
+
     }
 
     return (
-        <Link to={"/profile"}>
+        <Link to={"/profile?id=" + props.user.id}>
 
         <div onClick={openLink} className="search-result-box">
-            <p>{props.name}</p>
+            <p>{props.user.fullName}</p>
         </div>
         </Link>
     )

@@ -8,7 +8,8 @@ class Search extends React.Component {
 
         this.state = {
             users: [],
-            searchTerm: ""
+            searchTerm: "",
+            error: ""
         }
 
         this.searchUsers = this.searchUsers.bind(this);
@@ -50,8 +51,10 @@ class Search extends React.Component {
 
         console.log(body);
 
+        // TODO: fix
+
         this.setState({
-            users: body.json()
+            users: body
         });
 
     }
@@ -70,7 +73,7 @@ class Search extends React.Component {
                 <div className="search-results">
                 {
                     this.state.users.map((option) => (
-                        <SearchResult name={option}/>
+                        <SearchResult user={option}/>
                     ))
 
                 }
