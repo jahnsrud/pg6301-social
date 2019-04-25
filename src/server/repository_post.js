@@ -55,7 +55,7 @@ function getPostsFromAuthor(author) {
 function getPostsFromAuthors(authors) {
 
     // TODO: FIX!
-    return posts.values().filter(b => b.author === author);
+    return posts.values().filter(b => b.author === authors);
 
 }
 

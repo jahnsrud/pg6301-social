@@ -8,49 +8,47 @@ class App extends React.Component {
         super(props);
         this.state = {
             posts: []
-        }
+        };
 
-        this.fetchAllPosts = this.fetchAllPosts.bind(this);
+        this.fetchPostsWithWebSockets = this.fetchPostsWithWebSockets.bind(this);
     }
 
     componentDidMount() {
 
-        this.fetchAllPosts();
+        this.fetchPostsWithWebSockets();
 
     }
 
     // Fetch inspired by
     // https://github.com/arcuri82/web_development_and_api_design/blob/master/les07/server_client_separated/frontend/src/client/home.jsx
 
-    async fetchAllPosts() {
-        const url = "/api/all-posts";
-        let response;
-        let payload;
+    async fetchPostsWithWebSockets() {
+        const POSTS_URL = "ws://" + window.location.host + "/";
+        console.log(POSTS_URL);
 
-        try {
-            response = await fetch(url);
-            payload = await response.json();
-        } catch (err) {
-            //Network error: eg, wrong URL, no internet, etc.
-            this.setState({
-                error: "ERROR when retrieving list of posts: " + err,
-                posts: []
-            });
-            return;
-        }
+        this.socket = new WebSocket(POSTS_URL);
 
-        if (response.status === 200) {
+        this.socket.onmessage = (event => {
+
+            const posts = JSON.parse(event.data);
+            console.log("Parsed Posts: " + posts);
+
             this.setState({
-                error: null,
-                posts: payload
+                posts: posts
+
             });
-        } else {
-            this.setState({
-                error: "Issue with HTTP connection: status code " + response.status,
-                posts: []
-            });
-        }
+                /* prev=> {
+                    if (prev.messages === null) {
+                        return {messages: msgList}
+                    } else {
+                        return {messages: [...prev.messages, ...msgList]};
+                    }
+                }
+            )*/
+        });
     }
+
+
 
     render() {
         return (

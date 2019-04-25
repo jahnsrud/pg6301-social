@@ -21,7 +21,11 @@ class Chat extends React.Component {
     }
 
     componentDidMount() {
-        const CHAT_URL = "ws://" + window.location.host + "/chat_api"
+        this.configureWebSockets();
+    }
+
+    configureWebSockets() {
+        const CHAT_URL = "ws://" + window.location.host + "/chat_api";
         console.log(CHAT_URL);
 
         this.socket = new WebSocket(CHAT_URL);
@@ -40,6 +44,7 @@ class Chat extends React.Component {
             )
         });
     }
+
     onTextChange = (event) => {
         this.setState({
             message: event.target.value
