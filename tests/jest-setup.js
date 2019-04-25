@@ -1,4 +1,4 @@
-const {configure } = require('enzyme');
+const {configure } = require('enzyme/build');
 const jsdom = require('jsdom');
 const Adapter = require('enzyme-adapter-react-16');
 
@@ -6,7 +6,7 @@ function setUpDomEnvironment() {
   const { JSDOM } = jsdom;
   const dom = new JSDOM('<!doctype html><html><body></body></html>', {url: 'http://localhost/'});
   const { window } = dom;
-  global.fetch = require('jest-fetch-mock');
+  global.fetch = require('jest-fetch-mock/types');
   global.fetchMock = global.fetch;
 
   global.window = window;
