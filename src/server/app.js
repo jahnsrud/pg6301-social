@@ -7,8 +7,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
-const userRepo = require('./repository_user');
-const postRepo = require('./repository_post');
+const userRepo = require('./repositories/repository_user');
+const postRepo = require('./repositories/repository_post');
 const userRoutes = require('./routes/user');
 
 

@@ -1,4 +1,4 @@
-const userRepo = require('../../../src/server/repository_user');
+const userRepo = require('../../../src/server/repositories/repository_user');
 
 test('Creating user with username foo should return foo. Also gets the user', () => {
 

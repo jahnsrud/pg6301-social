@@ -1,4 +1,4 @@
-const postRepo = require('../../../src/server/repository_post');
+const postRepo = require('../../../src/server/repositories/repository_post');
 
 test('Creating post should give id 0', () => {
 

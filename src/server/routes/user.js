@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport/lib');
-const UserRepo = require('../repository_user');
+const UserRepo = require('../repositories/repository_user');
 
 
 /*
