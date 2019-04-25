@@ -38,7 +38,7 @@ class Search extends React.Component {
 
     async search(search) {
 
-        const url = "/api/users/search/" + search;
+        const url = "/api/users/search/" + search.toLowerCase();
 
         const response = await fetch(url);
         const body = await response.json();

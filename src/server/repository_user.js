@@ -59,7 +59,7 @@ function findUsers(search) {
 
     for (let user of users.values()) {
         console.log(user);
-        if (user.id === search) {
+        if ((user.id.toLowerCase() === search.toLowerCase()) || (user.fullName.toLowerCase() === search.toLowerCase())) {
             searchResults.push(user);
         }
     }
