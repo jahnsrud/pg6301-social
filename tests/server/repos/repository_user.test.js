@@ -15,6 +15,29 @@ test('Creating user with username foo should return foo. Also gets the user', ()
 
 });
 
+
+test('Verify username and password', () => {
+
+    const username = "foo";
+    const password = "super-secret-password";
+    const fullName = "Foo Bar";
+    const birthday = "0000000";
+    const location = "Oslo";
+
+    userRepo.createUser(username, password, fullName, birthday, location);
+
+
+    expect(userRepo.verifyUser(username, password)).toBe(true);
+
+});
+
+test('Adding admin users will add 4 predefined users', () => {
+
+    userRepo.createAdmin();
+    expect(userRepo.users.count).toBe(4);
+
+});
+
 test('Find user by username or full name', () => {
 
     const username = "foo";

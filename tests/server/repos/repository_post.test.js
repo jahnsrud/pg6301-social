@@ -12,6 +12,19 @@ test('Creating post should give id 0', () => {
 
 });
 
+test('Creating, deleting and then getting the deleted post should return a null post', () => {
+
+    const content = "my_content";
+    const author = "my_author";
+    const link = "my_link";
+
+    let id = postRepo.createPost(content, author, link);
+    postRepo.deletePost(id);
+
+    expect(postRepo.getPost(id)).toBe(undefined);
+
+});
+
 test('Creating a post after generating 5 should give id 6', () => {
 
     const content = "my_content";
