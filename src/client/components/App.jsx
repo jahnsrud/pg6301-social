@@ -52,19 +52,30 @@ class App extends React.Component {
 
 
     render() {
+
         return (
             <div>
                 {
-                    (this.props.userId === null) && <div>
-                        <p>Not signed in!</p>
+                    (this.props.userId === null) &&
+
+                    <div>
+                        <h2>Welcome to social.app</h2>
+                        <p>Get started by signing in or register.</p>
                         <Link to={"/login"}>
-                        <div className="button">Login</div>
-                    </Link>
-                        <Link to={"/register"}>
-                            <div className="button">Register</div>
+                            <div className="button button-primary">Login</div>
                         </Link>
+                        <br />
+                        <Link to={"/register"}>
+                            <div className="button button-primary">Register</div>
+                        </Link>
+
+                        <h3>Why register?</h3>
+                        <p>You can show cool posts like these:</p>
+                        {
+                            this.state.posts !== null && <Timeline posts={this.state.posts}/>
+                        }
                     </div>
-                    }
+                }
                 {
                     (this.props.userId !== null) &&
 

@@ -18,7 +18,7 @@ class Header extends React.Component {
             <div className="conditional-links">
                 <NavLink to="/" className="header-link" activeClassName="is-active" exact={true}>Timeline</NavLink>
                 <NavLink to="/chat" className="header-link" activeClassName="is-active" exact={true}>Chat</NavLink>
-                <NavLink to="/profile" className={`${profileStyles.headerLink}`} activeClassName="is-active" exact={true}>{"👤 " + this.props.fullName}</NavLink>
+                <NavLink to="/profile" className={`${profileStyles.headerLink}`} activeClassName="is-active" exact={true}>{"👤 " + this.props.userId.toLowerCase()}</NavLink>
                 <p className="header-link" onClick={this.doLogout}>Sign Out</p>
             </div>
         )
