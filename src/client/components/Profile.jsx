@@ -1,7 +1,7 @@
 import React from "react";
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Profile extends React.Component {
 
@@ -139,7 +139,7 @@ s
             }
 
             {
-                (this.props.userId == null) && <p className="info-message">Login to see more</p>
+                (this.props.userId == null) && <Link to="/login"> <p className="info-message">Login to see more</p></Link>
             }
 
 
