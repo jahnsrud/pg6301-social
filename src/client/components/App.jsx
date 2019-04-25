@@ -1,6 +1,7 @@
 import React from 'react';
 import Timeline from "./Timeline";
 import CreatePost from "./CreatePost";
+import {Link} from "react-router-dom";
 
 class App extends React.Component {
 
@@ -54,11 +55,25 @@ class App extends React.Component {
         return (
             <div>
                 {
-                    (this.props.userId === null) && <p>Not signed in!</p>
-                }
-                <CreatePost/>
+                    (this.props.userId === null) && <div>
+                        <p>Not signed in!</p>
+                        <Link to={"/login"}>
+                        <div className="button">Login</div>
+                    </Link>
+                        <Link to={"/register"}>
+                            <div className="button">Register</div>
+                        </Link>
+                    </div>
+                    }
                 {
-                    this.state.posts !== null && <Timeline posts={this.state.posts}/>
+                    (this.props.userId !== null) &&
+
+                    <div>
+                        <CreatePost/>
+                        {
+                            this.state.posts !== null && <Timeline posts={this.state.posts}/>
+                        }
+                    </div>
                 }
 
             </div>

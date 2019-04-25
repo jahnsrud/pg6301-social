@@ -8,17 +8,6 @@ class Timeline extends React.Component {
     }
 
     render() {
-
-        if (this.props.posts !== null) {
-            console.log(this.props.posts[0]);
-
-            /* this.props.posts.forEach(test => {
-                console.log(test);
-            })*/
-
-        }
-
-
         return (
             <div>
                 {

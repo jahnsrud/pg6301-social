@@ -8,8 +8,8 @@ class Register extends React.Component {
     constructor(props) {
         super(props);
 
-        if (this.props.userId !== null) {
-            <Redirect to="/" push />
+        if (this.props.userId === null) {
+
         }
 
         this.state = {
@@ -34,11 +34,6 @@ class Register extends React.Component {
 
     onFullNameChange = (event) => {
         this.setState({fullName: event.target.value
-        })
-    }
-
-    onBirthdayChange = (event) => {
-        this.setState({birthday: event.target.value
         })
     }
 
