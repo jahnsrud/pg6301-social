@@ -12,6 +12,7 @@ class App extends React.Component {
         };
 
         this.fetchPostsWithWebSockets = this.fetchPostsWithWebSockets.bind(this);
+        this.notifyWebSocket = this.notifyWebSocket.bind(this);
     }
 
     // Fetch inspired by
@@ -31,13 +32,14 @@ class App extends React.Component {
 
         this.socket.onmessage = (event => {
 
-            const posts = JSON.parse(event.data);
-            // console.log("Parsed Posts: " + posts);
+            const foundPosts = JSON.parse(event.data);
+            console.log("FOUND: " + foundPosts);
 
             this.setState({
-                posts: posts
+                posts: foundPosts
 
             });
+
             /* prev=> {
                 if (prev.messages === null) {
                     return {messages: msgList}
@@ -47,6 +49,15 @@ class App extends React.Component {
             }
         )*/
         });
+    }
+
+    notifyWebSocket() {
+
+        const payload = JSON.stringify({
+            message: "hello, world!"
+        });
+        this.socket.send(payload);
+
     }
 
     render() {
@@ -78,7 +89,7 @@ class App extends React.Component {
                     (this.props.userId !== null) &&
 
                     <div>
-                        <CreatePost author={this.props.userId}/>
+                        <CreatePost author={this.props.userId} notifyWebSocket={this.notifyWebSocket}/>
                         {
                             this.state.posts !== null && <Timeline posts={this.state.posts}/>
                         }

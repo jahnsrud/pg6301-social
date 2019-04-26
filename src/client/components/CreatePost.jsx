@@ -53,6 +53,8 @@ class CreatePost extends React.Component {
             link: ""
         });
 
+        this.props.notifyWebSocket();
+
         return response.status === 201;
     };
 

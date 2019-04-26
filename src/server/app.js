@@ -38,7 +38,18 @@ app.get('/profile-image-file', function (req, res) {
 /*
 Posts
  */
+app.post('/api/posts', (req, res) => {
+    const post = req.body;
+    const id = postRepo.createPost(post.content, post.author, post.link);
 
+
+    console.log("Received: " + id);
+
+    res.status(201);
+    res.header("location", "/api/posts/" + id);
+    res.send();
+
+});
 
 app.ws('/', (ws, req) => {
     console.log('Connected: WebSocket');
@@ -53,20 +64,12 @@ app.ws('/', (ws, req) => {
             if wanted to handle avoiding sending duplicated msgs)
          */
 
-        postRepo.createPost("COMING SOON", "AUTHOR", "");
-
         //do a broadcast to all existing clients
         ews.getWss().clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
-                /*
-                    even if a single msg, we will have it in a list of size 1.
-                    This does simplify the code on the client, as it does not
-                    need to distinguish between the download of all msgs on connection
-                    and these following broadcasts, i.e., they ll have the same structure.
-                 */
-                client.send(JSON.stringify(["TEST"]));
-
-            } else {
+                client.send(JSON.stringify(postRepo.getAllPosts()));
+            }
+            else {
                 console.log("Received invalid message: " + dto.message)
             }
 
@@ -95,12 +98,6 @@ function messageIsValid(input) {
 
 app.ws("/chat_api", function (ws, req) {
     console.log('Connected: WebSocket');
-
-    /*
-        new connection, send all existing messages.
-        Note: this would not handle the case of a client that already
-        had the data from previous connection, and started a new one (will get duplicates)
-     */
 
     ws.send(JSON.stringify(messages));
     ws.on('message', fromClient => {
